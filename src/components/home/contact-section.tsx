@@ -66,14 +66,14 @@ export default function ContactSection() {
   return (
     <section id="contact" className="py-20 bg-white">
       <div className="container mx-auto px-4 md:px-6 lg:px-8">
-        <h2 className="section-heading text-3xl md:text-4xl font-heading font-bold text-center mb-12">
+        <h2 className="section-heading text-3xl md:text-4xl font-heading font-bold text-center mb-12 text-black">
           Get In Touch
         </h2>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           <div>
-            <h3 className="font-heading text-2xl font-semibold mb-4">Contact Information</h3>
-            <p className="text-neutral-charcoal/80 mb-8">
+            <h3 className="font-heading text-2xl font-semibold mb-4 text-black">Contact Information</h3>
+            <p className="text-black/80 mb-8">
               We're here to answer any questions you have about our event services.
               Reach out to us and we'll respond as soon as we can.
             </p>
@@ -81,11 +81,11 @@ export default function ContactSection() {
             <div className="space-y-6">
               <div className="flex items-start">
                 <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center shrink-0 mr-4">
-                  <MapPin className="text-primary" />
+                  <MapPin className="text-black" />
                 </div>
                 <div>
-                  <h4 className="font-semibold mb-1">Address</h4>
-                  <p className="text-neutral-charcoal/80">
+                  <h4 className="font-semibold mb-1 text-black">Address</h4>
+                  <p className="text-black/80">
                     123 Event Avenue, Suite 200<br />
                     New York, NY 10001
                   </p>
@@ -94,31 +94,31 @@ export default function ContactSection() {
 
               <div className="flex items-start">
                 <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center shrink-0 mr-4">
-                  <Phone className="text-primary" />
+                  <Phone className="text-black" />
                 </div>
                 <div>
-                  <h4 className="font-semibold mb-1">Phone</h4>
-                  <p className="text-neutral-charcoal/80">(212) 555-7890</p>
+                  <h4 className="font-semibold mb-1 text-black">Phone</h4>
+                  <p className="text-black/80">(212) 555-7890</p>
                 </div>
               </div>
 
               <div className="flex items-start">
                 <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center shrink-0 mr-4">
-                  <Mail className="text-primary" />
+                  <Mail className="text-black" />
                 </div>
                 <div>
-                  <h4 className="font-semibold mb-1">Email</h4>
-                  <p className="text-neutral-charcoal/80">info@classiceventhandler.com</p>
+                  <h4 className="font-semibold mb-1 text-black">Email</h4>
+                  <p className="text-black/80">info@classiceventhandler.com</p>
                 </div>
               </div>
 
               <div className="flex items-start">
                 <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center shrink-0 mr-4">
-                  <Clock className="text-primary" />
+                  <Clock className="text-black" />
                 </div>
                 <div>
-                  <h4 className="font-semibold mb-1">Business Hours</h4>
-                  <p className="text-neutral-charcoal/80">
+                  <h4 className="font-semibold mb-1 text-black">Business Hours</h4>
+                  <p className="text-black/80">
                     Monday - Friday: 9AM - 6PM<br />
                     Saturday: 10AM - 4PM<br />
                     Sunday: Closed
@@ -128,32 +128,32 @@ export default function ContactSection() {
             </div>
 
             <div className="mt-8">
-              <h4 className="font-semibold mb-3">Connect With Us</h4>
+              <h4 className="font-semibold mb-3 text-black">Connect With Us</h4>
               <div className="flex space-x-4">
                 <a
                   href="#"
-                  className="w-10 h-10 rounded-full bg-neutral-lightgray hover:bg-primary hover:text-white transition-colors duration-300 flex items-center justify-center"
+                  className="w-10 h-10 rounded-full text-black bg-neutral-lightgray hover:bg-primary hover:text-white transition-colors duration-300 flex items-center justify-center"
                   aria-label="Facebook"
                 >
                   <Facebook size={18} />
                 </a>
                 <a
                   href="#"
-                  className="w-10 h-10 rounded-full bg-neutral-lightgray hover:bg-primary hover:text-white transition-colors duration-300 flex items-center justify-center"
+                  className="w-10 h-10 rounded-full text-black bg-neutral-lightgray hover:bg-primary hover:text-white transition-colors duration-300 flex items-center justify-center"
                   aria-label="Instagram"
                 >
                   <Instagram size={18} />
                 </a>
                 <a
                   href="#"
-                  className="w-10 h-10 rounded-full bg-neutral-lightgray hover:bg-primary hover:text-white transition-colors duration-300 flex items-center justify-center"
+                  className="w-10 h-10 rounded-full text-black bg-neutral-lightgray hover:bg-primary hover:text-white transition-colors duration-300 flex items-center justify-center"
                   aria-label="Twitter"
                 >
                   <Twitter size={18} />
                 </a>
                 <a
                   href="#"
-                  className="w-10 h-10 rounded-full bg-neutral-lightgray hover:bg-primary hover:text-white transition-colors duration-300 flex items-center justify-center"
+                  className="w-10 h-10 rounded-full text-black bg-neutral-lightgray hover:bg-primary hover:text-white transition-colors duration-300 flex items-center justify-center"
                   aria-label="LinkedIn"
                 >
                   <Linkedin size={18} />
@@ -165,7 +165,7 @@ export default function ContactSection() {
           <div>
             <Form {...form}>
               <form onSubmit={form.handleSubmit(onSubmit)} className="bg-neutral-lightgray p-8 rounded-lg">
-                <h3 className="font-heading text-2xl font-semibold mb-6">Send Us a Message</h3>
+                <h3 className="font-heading text-2xl font-semibold mb-6 text-black">Send Us a Message</h3>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                   <FormField
@@ -173,7 +173,7 @@ export default function ContactSection() {
                     name="name"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Full Name</FormLabel>
+                        <FormLabel style={{ color: 'black' }}>Full Name</FormLabel>
                         <FormControl>
                           <Input placeholder="John Doe" {...field} />
                         </FormControl>
@@ -187,7 +187,7 @@ export default function ContactSection() {
                     name="email"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Email Address</FormLabel>
+                        <FormLabel style={{ color: 'black' }}>Email Address</FormLabel>
                         <FormControl>
                           <Input placeholder="john.doe@example.com" {...field} />
                         </FormControl>
@@ -202,7 +202,7 @@ export default function ContactSection() {
                   name="phone"
                   render={({ field }) => (
                     <FormItem className="mb-6">
-                      <FormLabel>Phone Number</FormLabel>
+                      <FormLabel style={{ color: 'black' }}>Phone Number</FormLabel>
                       <FormControl>
                         <Input placeholder="(123) 456-7890" {...field} />
                       </FormControl>
@@ -216,7 +216,7 @@ export default function ContactSection() {
                   name="eventType"
                   render={({ field }) => (
                     <FormItem className="mb-6">
-                      <FormLabel>Event Type</FormLabel>
+                      <FormLabel style={{ color: 'black' }}>Event Type</FormLabel>
                       <Select
                         onValueChange={field.onChange}
                         defaultValue={field.value}
@@ -244,7 +244,7 @@ export default function ContactSection() {
                   name="message"
                   render={({ field }) => (
                     <FormItem className="mb-6">
-                      <FormLabel>Your Message</FormLabel>
+                      <FormLabel style={{ color: 'black' }}>Your Message</FormLabel>
                       <FormControl>
                         <Textarea
                           placeholder="Tell us about your event or inquiry..."

@@ -95,7 +95,19 @@ export default function TestimonialsSection() {
         fullName: "Aisha Patel",
         avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&h=150"
       }
-    }
+    },
+    {
+      id: 4,
+      userId: 4,
+      eventType: "wedding",
+      content: "Classic Event Handler created the wedding of our dreams. Every detail was perfect, from the venue to the flowers to the catering. We couldn't have asked for a more special day.",
+      rating: 5,
+      featured: true,
+      user: {
+        fullName: "Sarah Johnson",
+        avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&h=150"
+      }
+    },
   ];
 
   // Function to get display name for event type

@@ -52,7 +52,7 @@ export default function ServicesSection() {
   return (
     <section id="services" className="py-20 bg-neutral-lightgray">
       <div className="container mx-auto px-4 md:px-6 lg:px-8">
-        <h2 className="section-heading text-3xl md:text-4xl font-heading font-bold text-center mb-12">
+        <h2 className="section-heading text-3xl md:text-4xl font-heading font-bold text-center mb-12 ">
           Our Premium Services
         </h2>
 
@@ -63,12 +63,12 @@ export default function ServicesSection() {
               className="bg-white rounded-lg shadow-lg overflow-hidden transition-transform duration-300 hover:shadow-xl hover:-translate-y-1"
             >
               <div className="p-6">
-                <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mb-6">
+                <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mb-6 text-black">
                   {service.icon}
                 </div>
-                <h3 className="font-heading text-xl font-semibold mb-3">{service.title}</h3>
-                <p className="text-neutral-charcoal/80 mb-4">{service.description}</p>
-                <Link href={service.link} className="text-primary hover:text-primary-dark font-medium transition-colors duration-300 inline-flex items-center">
+                <h3 className="font-heading text-xl font-semibold mb-3 text-black">{service.title}</h3>
+                <p className="text-black/80 mb-4">{service.description}</p>
+                <Link href={service.link} className="text-black hover:text-primary-dark font-medium transition-colors duration-300 inline-flex items-center">
                   Learn More <ChevronRight className="ml-1 h-4 w-4" />
                 </Link>
               </div>

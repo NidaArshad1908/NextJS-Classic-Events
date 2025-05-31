@@ -59,7 +59,7 @@ function LoginForm() {
   }
 
   return (
-    <Card className="w-full max-w-md mx-auto">
+    <Card className="w-full max-w-md mx-auto mt-10">
       <CardHeader className="space-y-1">
         <CardTitle className="text-2xl font-heading text-center">Login</CardTitle>
         <CardDescription className="text-center">

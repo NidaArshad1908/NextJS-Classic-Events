@@ -13,13 +13,13 @@ export default function CTASection() {
         </p>
         <div className="flex flex-col sm:flex-row justify-center gap-4">
           <Link href="#contact">
-            <Button className="bg-white hover:bg-neutral-cream text-primary px-8 py-6 h-auto rounded-md text-lg font-medium w-full sm:w-auto">
+            <Button className="bg-white hover:bg-neutral-cream text-black px-8 py-6 h-auto rounded-md text-lg font-medium w-full sm:w-auto">
               Contact Us Today
             </Button>
           </Link>
           <Link href="/login">
-            <Button 
-              variant="outline" 
+            <Button
+              variant="outline"
               className="bg-transparent hover:bg-white/10 text-white border-2 border-white px-8 py-6 h-auto rounded-md text-lg font-medium w-full sm:w-auto"
             >
               Login to Dashboard
