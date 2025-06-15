@@ -38,7 +38,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           <div>
             <h3 className="font-heading text-xl font-semibold mb-6">Classic Event Handler</h3>
-            <p className="text-white/70 mb-6">Creating timeless, elegant events that exceed expectations and leave lasting memories.</p>
+            <p className="text-white/70 mb-6 ">Creating timeless, elegant events that exceed expectations and leave lasting memories.</p>
             <div className="flex space-x-4">
               <a href="#" className="text-white/70 hover:text-secondary transition-colors duration-300">
                 <Facebook size={20} />

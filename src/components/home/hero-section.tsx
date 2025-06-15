@@ -1,5 +1,6 @@
 import { Link } from 'wouter';
 import { Button } from '@/components/ui/button';
+import { Stack } from '@mui/material';
 
 export default function HeroSection() {
   return (
@@ -16,6 +17,11 @@ export default function HeroSection() {
           <p className="text-black text-xl md:text-2xl mb-10 font-light">
             Specialized in weddings, corporate gatherings, and cultural celebrations
           </p>
+          <Stack spacing={2} direction="row">
+            <Button variant="outline" style={{ backgroundColor: 'red', color: 'white', borderColor: 'red', borderWidth: '2px', borderRadius: '10px', padding: '10px 20px' }}>Text</Button>
+            <Button variant="default" style={{ backgroundColor: 'red', color: 'white', borderColor: 'red', borderWidth: '2px', borderRadius: '10px', padding: '10px 20px' }}>Contained</Button>
+            <Button variant="destructive" style={{ backgroundColor: 'red', color: 'white', borderColor: 'red', borderWidth: '2px', borderRadius: '10px', padding: '10px 20px' }}>Outlined</Button>
+          </Stack>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Link href="#services">
               <Button className="bg-primary hover:bg-primary-dark text-black px-8 py-6 rounded-md text-lg font-medium h-auto w-full sm:w-auto">
