@@ -32,8 +32,8 @@ export default function Header() {
   ];
 
   return (
-    <header className={`fixed w-full bg-transparent z-50 transition-all duration-300 ${isScrolled ? 'shadow-md bg-opacity-95' : 'bg-opacity-90'}`}>
-      <div className="container mx-auto px-4 md:px-6 lg:px-8">
+    <header className={`fixed w-full bg-transparent z-50 transition-all duration-300 backdrop-blur-sm ${isScrolled ? 'shadow-md bg-opacity-95' : 'bg-opacity-90'}`}>
+      <div className="container mx-auto px-4 md:px-6 lg:px-8" >
         <div className="flex justify-between items-center py-4">
           <Link href="/" className="flex items-center">
             <span className="text-primary font-heading text-2xl md:text-3xl font-bold">
