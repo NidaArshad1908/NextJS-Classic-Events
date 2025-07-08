@@ -21,6 +21,15 @@ export default function Header() {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
 
   const navLinks = [
     { name: 'Home', path: '/' },
@@ -32,9 +41,9 @@ export default function Header() {
   ];
 
   return (
-    <header className={`fixed w-full bg-transparent z-50 transition-all duration-300 backdrop-blur-sm ${isScrolled ? 'shadow-md bg-opacity-95' : 'bg-opacity-90'}`}>
+    <header className="fixed w-full z-50 transition-all duration-300 isScrolled ? 'bg-black' : 'bg-transparent'">
       <div className="container mx-auto px-4 md:px-6 lg:px-8" >
-        <div className="flex justify-between items-center py-4">
+        <div className="flex  justify-between items-center py-4">
           <Link href="/" className="flex items-center">
             <span className="text-primary font-heading text-2xl md:text-3xl font-bold">
               Classic <span className="text-secondary">Event</span> Handler
@@ -47,7 +56,7 @@ export default function Header() {
               <Link
                 key={link.name}
                 href={link.path}
-                className="text-neutral-charcoal hover:text-primary transition-colors duration-300 font-medium"
+                className="text-neutral-charcoal hover:text-primary transition-colors duration-300 font-medium isScrolled ? 'text-white hover:text-secondary' : 'text-neutral-charcoal hover:text-primary'"
               >
                 {link.name}
               </Link>
@@ -57,7 +66,8 @@ export default function Header() {
               <>
                 <Link
                   href="/dashboard"
-                  className="text-neutral-charcoal hover:text-primary transition-colors duration-300 font-medium"
+                  className={`transition-colors duration-300 font-medium ${isScrolled ? 'text-white hover:text-secondary' : 'text-neutral-charcoal hover:text-primary'
+                    }`}
                 >
                   Dashboard
                 </Link>
