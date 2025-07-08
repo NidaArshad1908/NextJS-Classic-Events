@@ -33,11 +33,11 @@ export default function Header() {
 
   const navLinks = [
     { name: 'Home', path: '/' },
-    { name: 'Services', path: '/#services' },
-    { name: 'Venues', path: '/#venues' },
-    { name: 'Events', path: '/#events' },
-    { name: 'Testimonials', path: '/#testimonials' },
-    { name: 'Contact', path: '/#contact' },
+    { name: 'Services', path: './services' },
+    { name: 'Venues', path: '/venues' },
+    { name: 'Events', path: '/events' },
+    { name: 'Testimonials', path: '/testimonials' },
+    { name: 'Contact', path: '/contact' },
   ];
 
   return (
@@ -45,13 +45,13 @@ export default function Header() {
       <div className="container mx-auto px-4 md:px-6 lg:px-8" >
         <div className="flex  justify-between items-center py-4">
           <Link href="/" className="flex items-center">
-            <span className="text-primary font-heading text-2xl md:text-3xl font-bold">
+            <span className="text-black font-heading text-2xl md:text-3xl font-bold">
               Classic <span className="text-secondary">Event</span> Handler
             </span>
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex space-x-8 items-center">
+          <nav className="hidden md:flex space-x-8 items-center text-black">
             {navLinks.map((link) => (
               <Link
                 key={link.name}
@@ -81,7 +81,7 @@ export default function Header() {
               </>
             ) : (
               <Link href="/login">
-                <Button className="bg-primary hover:bg-primary-dark text-white">
+                <Button className="bg-primary hover:bg-primary-dark text-black">
                   Login
                 </Button>
               </Link>
@@ -138,7 +138,7 @@ export default function Header() {
                     href="/login"
                     onClick={() => setMobileMenuOpen(false)}
                   >
-                    <Button className="bg-primary hover:bg-primary-dark text-white w-full mt-4">
+                    <Button className="bg-primary hover:bg-primary-dark text-black w-full mt-4">
                       Login
                     </Button>
                   </Link>
