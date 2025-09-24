@@ -1,6 +1,6 @@
 "use client";
 
-import { Box, Typography, Button, Grid, CardContent,Avatar,Rating, Card } from "@mui/material";
+import { Box, Typography, Button, Grid } from "@mui/material";
 import * as React from "react";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 
@@ -23,74 +23,6 @@ const services = [
     "Church Conferences",
 ];
 
-import GoogleIcon from "@mui/icons-material/Google";
-
-const reviews = [
-  {
-    name: "Lonia Kgosinkwe",
-    date: "2025-07-06",
-    text: "Wow! Thank you so much for your great service. Everything was perfect and on time. Highly recommend Classic Events for all your event needs.",
-    rating: 5,
-    avatar: "https://i.pravatar.cc/100?img=1",
-  },
-  {
-    name: "Natalie Fung",
-    date: "2025-06-30",
-    text: "From the website, to Classic warm & friendly personality, the good quality and excellent condition of the items we hired, to the prompt delivery and collection,everything eas perfect.",
-    rating: 5,
-    avatar: "https://i.pravatar.cc/100?img=2",
-  },
-  {
-    name: "Moments in Time",
-    date: "2025-06-22",
-    text: "Excellent service, professional and reliable. Highly recommend. Thankyou Classic Events for making our event special.",
-    rating: 5,
-    avatar: "https://i.pravatar.cc/100?img=3",
-  },
-  {
-    name: " Rudzani Tshikota ",
-    date: "2025-05-04",
-    text: "Thank you so much @ Classic Events for making our events special. Your service is imeccable and your team is professional and friendly. Highly recommend.",
-    rating: 5,
-    avatar: "https://i.pravatar.cc/100?img=1",
-  },
-  {
-    name: " Melissa Coetzee ",
-    date: "2025-04-22",
-    text: "Thank you Lilly and crew. Your service is impeccable and made this a smooth experience. Highly recommend.",
-    rating: 5,
-    avatar: "https://i.pravatar.cc/100?img=2",
-  },
-  {
-    name: " Ntando Magadla ",
-    date: "2025-03-02",
-    text: "Lillian and her team are absolutely great job. Punctual, friendly, caring and reasonable. Thank you so much for making our day special",
-    rating: 5,
-    avatar: "https://i.pravatar.cc/100?img=3",
-  },
-  {
-    name: " Janine Ryan ",
-    date: "2025-02-23",
-    text: "Great service. Highly recommend Classic Events for all your event needs.",
-    rating: 5,
-    avatar: "https://i.pravatar.cc/100?img=1",
-  },
-  {
-    name: " Danelle Tyler ",
-    date: "2025-02-23",
-    text: "We rented a candy cart and back drops from Classic Events. The service was excellent and th quality of the items were great. Highly recommend.",
-    rating: 5,
-    avatar: "https://i.pravatar.cc/100?img=2",
-  },
-  {
-    name: " Nonto Khumalo",
-    date: "2024-12-09",
-    text: "Great service, quality equipment. Highly recommend Classic events for all your event needs.",
-    rating: 5,
-    avatar: "https://i.pravatar.cc/100?img=3",
-  },
-];
-
 export default function Home() {
     const imageUrl = "https://images.unsplash.com/photo-1519225421980-715cb0215aed?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8d2VkZGluZyUyMHRhYmxlfGVufDB8fDB8fHww";
     const aboutImage1 = "https://i.pinimg.com/564x/01/a0/16/01a016f19683036e1d94ee0bb25917b9.jpg";
@@ -99,22 +31,22 @@ export default function Home() {
     return (
         <>
             <Box sx={{ width: "100%" }}>
-                <Box sx={{display: "flex",flexDirection: { xs: "column", md: "row" },minHeight: { xs: "auto", md: "86vh" },width: "100%",}}>
-                    <Box sx={{flex: 1,backgroundColor: "#fdf7f4",display: "flex",alignItems: "center",justifyContent: "center",p: { xs: 4, md: 12 },textAlign: { xs: "center", md: "left" },}}>
+                <Box sx={{ display: "flex", flexDirection: { xs: "column", md: "row" }, minHeight: { xs: "auto", md: "86vh" }, width: "100%", }}>
+                    <Box sx={{ flex: 1, backgroundColor: "#fdf7f4", display: "flex", alignItems: "center", justifyContent: "center", p: { xs: 4, md: 12 }, textAlign: { xs: "center", md: "left" }, }}>
                         <Box sx={{ maxWidth: { xs: "100%", md: 560 } }}>
-                            <Typography variant="subtitle2"sx={{ color: "text.secondary", mb: 1, textTransform: "none" }}>
+                            <Typography variant="subtitle2" sx={{ color: "text.secondary", mb: 1, textTransform: "none" }}>
                                 Decor Hire | Party Hire | Event Hire | Decor Setup
                             </Typography>
 
-                            <Typography component="h6"sx={{fontWeight: 500,lineHeight: 1,mb: 2,fontSize: { xs: "2.1rem", sm: "3rem", md: "5rem" },}}>
+                            <Typography component="h6" sx={{ fontWeight: 500, lineHeight: 1, mb: 2, fontSize: { xs: "2.1rem", sm: "3rem", md: "5rem" }, }}>
                                 We Create
                             </Typography>
 
-                            <Typography component="h6"sx={{fontWeight: 500,lineHeight: 1,mb: 2,fontSize: { xs: "2.1rem", sm: "3rem", md: "5rem" },}}>
+                            <Typography component="h6" sx={{ fontWeight: 500, lineHeight: 1, mb: 2, fontSize: { xs: "2.1rem", sm: "3rem", md: "5rem" }, }}>
                                 Memorable
                             </Typography>
 
-                            <Typography component="h6"sx={{fontWeight: 500,lineHeight: 1,mb: 2,fontSize: { xs: "2.1rem", sm: "3rem", md: "5rem" },}}>
+                            <Typography component="h6" sx={{ fontWeight: 500, lineHeight: 1, mb: 2, fontSize: { xs: "2.1rem", sm: "3rem", md: "5rem" }, }}>
                                 Events
                             </Typography>
 
@@ -123,20 +55,20 @@ export default function Home() {
                             </Typography>
 
                             <Box sx={{ display: "flex", gap: 2, flexWrap: "wrap", justifyContent: { xs: "center", md: "flex-start" } }}>
-                                <Button variant="contained"sx={{bgcolor: "#B88658",px: 3,py: 1.2,"&:hover": { bgcolor: "black" },}}>
+                                <Button variant="contained" sx={{ bgcolor: "#B88658", px: 3, py: 1.2, "&:hover": { bgcolor: "black" }, }}>
                                     Request A Quote
                                 </Button>
 
-                                <Button variant="contained"sx={{ bgcolor: "#222222", px: 3, py: 1.2, "&:hover": { bgcolor: "#B88658" } }}>
+                                <Button variant="contained" sx={{ bgcolor: "#222222", px: 3, py: 1.2, "&:hover": { bgcolor: "#B88658" } }}>
                                     Make Your Own Quote
                                 </Button>
                             </Box>
                         </Box>
                     </Box>
 
-                    <Box sx={{flex: 1,display: { xs: "none", md: "block" },backgroundImage: `linear-gradient(to right, #fdf7f4 0%, rgba(253,247,244,0) 45%), url(${imageUrl})`,backgroundPosition: "center right",backgroundSize: "cover",backgroundRepeat: "no-repeat",minHeight: "86vh",}}/>
+                    <Box sx={{ flex: 1, display: { xs: "none", md: "block" }, backgroundImage: `linear-gradient(to right, #fdf7f4 0%, rgba(253,247,244,0) 45%), url(${imageUrl})`, backgroundPosition: "center right", backgroundSize: "cover", backgroundRepeat: "no-repeat", minHeight: "86vh", }} />
 
-                    <Box component="img"src={imageUrl}alt="Event Decor"sx={{ display: { xs: "block", md: "none" }, width: "100%", height: "auto", objectFit: "cover" }}
+                    <Box component="img" src={imageUrl} alt="Event Decor" sx={{ display: { xs: "block", md: "none" }, width: "100%", height: "auto", objectFit: "cover" }}
                     />
                 </Box>
             </Box>
@@ -158,89 +90,89 @@ export default function Home() {
             </Box>
 
             <Box sx={{ py: 8, backgroundColor: "#fdf7f4" }}>
-                <Box sx={{display: "flex",flexDirection: { xs: "column", lg: "row" },maxWidth: "1200px",mx: "auto",px: { xs: 3, md: 6 },gap: 4,}}>
-                    <Box sx={{flex: 1,display: "flex",flexDirection: "column",justifyContent: "center",pr: { lg: 4 },}}>
-                        <Typography variant="h3"sx={{fontWeight: "bold",mb: 2,fontSize: { xs: "2rem", md: "2.5rem" },color: "#333",}}>
+                <Box sx={{ display: "flex", flexDirection: { xs: "column", lg: "row" }, maxWidth: "1200px", mx: "auto", px: { xs: 3, md: 6 }, gap: 4, }}>
+                    <Box sx={{ flex: 1, display: "flex", flexDirection: "column", justifyContent: "center", pr: { lg: 4 }, }}>
+                        <Typography variant="h3" sx={{ fontWeight: "bold", mb: 2, fontSize: { xs: "2rem", md: "2.5rem" }, color: "#333", }}>
                             About Us
                         </Typography>
 
-                        <Typography variant="h5"sx={{color: "#666",mb: 2,fontWeight: 400,}}>
+                        <Typography variant="h5" sx={{ color: "#666", mb: 2, fontWeight: 400, }}>
                             What Classic Events is all about.
                         </Typography>
 
-                        <Typography sx={{color: "#B88658",fontStyle: "italic",fontSize: "1.1rem",mb: 3,}}>
+                        <Typography sx={{ color: "#B88658", fontStyle: "italic", fontSize: "1.1rem", mb: 3, }}>
                             We turn your dream event into reality!
                         </Typography>
 
-                        <Typography sx={{color: "#666",mb: 3,lineHeight: 1.6,}}>
+                        <Typography sx={{ color: "#666", mb: 3, lineHeight: 1.6, }}>
                             Our team is here to make your event unique and truly amazing.
                         </Typography>
 
-                        <Typography sx={{color: "#666",mb: 4,lineHeight: 1.6,}}>
+                        <Typography sx={{ color: "#666", mb: 4, lineHeight: 1.6, }}>
                             Our aim is to help you make your event a memorable and stress-free. Be it
                             your wedding, birthday party, lobola ceremony, graduation party and many
                             more, we will bring your dream to life.
                         </Typography>
 
-                        <Box sx={{display: "flex",gap: 2,flexWrap: "wrap",}}>
-                            <Button variant="contained"sx={{bgcolor: "#B88658",px: 4,py: 1.5,"&:hover": { bgcolor: "black" },textTransform: "none",}}>
+                        <Box sx={{ display: "flex", gap: 2, flexWrap: "wrap", }}>
+                            <Button variant="contained" sx={{ bgcolor: "#B88658", px: 4, py: 1.5, "&:hover": { bgcolor: "black" }, textTransform: "none", }}>
                                 Know More About Us
                             </Button>
 
-                            <Button variant="contained"sx={{bgcolor: "black",px: 4,py: 1.5,"&:hover": { bgcolor: "#B88658" },textTransform: "none",}}>
+                            <Button variant="contained" sx={{ bgcolor: "black", px: 4, py: 1.5, "&:hover": { bgcolor: "#B88658" }, textTransform: "none", }}>
                                 Get In Touch
                             </Button>
                         </Box>
                     </Box>
 
-                    <Box sx={{flex: 1,display: "flex",lexDirection: "column",gap: 2,position: "relative",}}>
-                        <Box sx={{width: "100%",alignSelf: "flex-end",position: "relative",}}>
-                            <Box component="img"src={aboutImage1}alt="Event Setup"sx={{width: "100%",height: "400px",objectFit: "cover",borderRadius: 2,}}/>
+                    <Box sx={{ flex: 1, display: "flex", lexDirection: "column", gap: 2, position: "relative", }}>
+                        <Box sx={{ width: "100%", alignSelf: "flex-end", position: "relative", }}>
+                            <Box component="img" src={aboutImage1} alt="Event Setup" sx={{ width: "100%", height: "400px", objectFit: "cover", borderRadius: 2, }} />
                         </Box>
 
                         <Box sx={{ width: "70%", alignSelf: "flex-start", position: "relative", mt: -3 }}>
-                            <Box component="img"src={aboutImage2}alt="Wedding Setup"sx={{ width: "100%", height: "250px", objectFit: "cover", borderRadius: 2 }}/>
+                            <Box component="img" src={aboutImage2} alt="Wedding Setup" sx={{ width: "100%", height: "250px", objectFit: "cover", borderRadius: 2 }} />
                         </Box>
                     </Box>
                 </Box>
             </Box>
 
-          <Box sx={{ py: 8, textAlign: "center", backgroundColor: "white" }}>
-  <Typography variant="h3"sx={{fontWeight: "italic",mb: 2,color: "#333",fontStyle: "italic"}}>
-    Some of our clients include:
-  </Typography>
+            <Box sx={{ py: 8, textAlign: "center", backgroundColor: "white" }}>
+                <Typography variant="h3" sx={{ fontWeight: "italic", mb: 2, color: "#333", fontStyle: "italic" }}>
+                    Some of our clients include:
+                </Typography>
 
-  <Box sx={{width: "100px",height: "2px",backgroundColor: "#A66C47",mx: "auto",mb: 6,}}/>
+                <Box sx={{ width: "100px", height: "2px", backgroundColor: "#A66C47", mx: "auto", mb: 6, }} />
 
-  <Box sx={{display: "flex",flexWrap: "wrap",justifyContent: "center",gap: 2,}}>
-    {[
-      "The Garden Venue",
-      "Killarney Country Club",
-      "Dainfern Golf Club",
-      "BidVest Coin",
-      "Research 94 Plus",
-      "Moon 6 Sixpence",
-      "Inimitable Wedding Venue",
-    ].map((client, index) => (
-      <Box key={index}sx={{px: 3,py: 2,backgroundColor: "#B88568",borderRadius: 1,border: "1px solid #e0e0e0",textAlign: "center",transition: "all 0.3s ease-in-out",fontSize: "0.95rem",fontWeight: 600,color: "#333","&:hover": {transform: "translateY(-4px)",backgroundColor: "#fdf7f4",borderColor: "#A66C47",boxShadow: "0 4px 12px rgba(0,0,0,0.1)",},}}>{client}</Box>
-    ))}
-  </Box>
-</Box>
+                <Box sx={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: 2, }}>
+                    {[
+                        "The Garden Venue",
+                        "Killarney Country Club",
+                        "Dainfern Golf Club",
+                        "BidVest Coin",
+                        "Research 94 Plus",
+                        "Moon 6 Sixpence",
+                        "Inimitable Wedding Venue",
+                    ].map((client, index) => (
+                        <Box key={index} sx={{ px: 3, py: 2, backgroundColor: "#B88568", borderRadius: 1, border: "1px solid #e0e0e0", textAlign: "center", transition: "all 0.3s ease-in-out", fontSize: "0.95rem", fontWeight: 600, color: "#333", "&:hover": { transform: "translateY(-4px)", backgroundColor: "#fdf7f4", borderColor: "#A66C47", boxShadow: "0 4px 12px rgba(0,0,0,0.1)", }, }}>{client}</Box>
+                    ))}
+                </Box>
+            </Box>
 
-          <Box sx={{ py: 8, textAlign: "center", backgroundColor: "#fdf7f4" }}>
-<Typography variant="h3"sx={{fontWeight: "italic",mb: 2,color: "#333",fontStyle: "italic"}}>
-What our clients say about us.
-  </Typography>
+            <Box sx={{ py: 8, textAlign: "center", backgroundColor: "#fdf7f4" }}>
+                <Typography variant="h3" sx={{ fontWeight: "italic", mb: 2, color: "#333", fontStyle: "italic" }}>
+                    What our clients say about us.
+                </Typography>
 
-          <Box sx={{ py: 8, textAlign: "left", backgroundColor: "#fdf7f4" }}>
-<Typography variant="h6"sx={{fontWeight: "bold",mb:2, }}>
-    EXCELLENT
-    </Typography>
-    </Box>
+                <Box sx={{ py: 8, textAlign: "left", backgroundColor: "#fdf7f4" }}>
+                    <Typography variant="h6" sx={{ fontWeight: "bold", mb: 2, }}>
+                        EXCELLENT
+                    </Typography>
+                </Box>
 
             </Box>
 
- 
+
         </>
     );
 }
