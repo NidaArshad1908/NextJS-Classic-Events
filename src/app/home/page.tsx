@@ -31,51 +31,50 @@ export default function Home() {
     return (
         <>
             <Box sx={{ width: "100%" }}>
-                <Box sx={{ display: "flex", flexDirection: { xs: "column", md: "row" }, minHeight: { xs: "auto", md: "86vh" }, width: "100%", }}>
-                    <Box sx={{ flex: 1, backgroundColor: "#fdf7f4", display: "flex", alignItems: "center", justifyContent: "center", p: { xs: 4, md: 12 }, textAlign: { xs: "center", md: "left" }, }}>
+                <Box sx={{ display: "flex", flexDirection: { xs: "column", md: "row" }, minHeight: { xs: "auto", md: "86vh" }, width: "100%" }}>
+                    <Box sx={{ flex: 1, backgroundColor: "#fdf7f4", display: "flex", alignItems: "center", justifyContent: "center", p: { xs: 4, md: 12 }, textAlign: { xs: "center", md: "left" } }}>
                         <Box sx={{ maxWidth: { xs: "100%", md: 560 } }}>
-                            <Typography variant="subtitle2" sx={{ color: "text.secondary", mb: 1, textTransform: "none" }}>
+                            <Typography variant="subtitle2" sx={{ color: "text.secondary", mb: 1, textTransform: "none", fontFamily: "var(--font-poppins)" }}>
                                 Decor Hire | Party Hire | Event Hire | Decor Setup
                             </Typography>
 
-                            <Typography component="h6" sx={{ fontWeight: 500, lineHeight: 1, mb: 2, fontSize: { xs: "2.1rem", sm: "3rem", md: "5rem" }, }}>
+                            <Typography component="h1" sx={{ fontWeight: 600, lineHeight: 1, mb: 2, fontSize: { xs: "2.1rem", sm: "3rem", md: "5rem" }, fontFamily: "var(--font-playfair)" }}>
                                 We Create
                             </Typography>
 
-                            <Typography component="h6" sx={{ fontWeight: 500, lineHeight: 1, mb: 2, fontSize: { xs: "2.1rem", sm: "3rem", md: "5rem" }, }}>
+                            <Typography component="h1" sx={{ fontWeight: 600, lineHeight: 1, mb: 2, fontSize: { xs: "2.1rem", sm: "3rem", md: "5rem" }, fontFamily: "var(--font-playfair)" }}>
                                 Memorable
                             </Typography>
 
-                            <Typography component="h6" sx={{ fontWeight: 500, lineHeight: 1, mb: 2, fontSize: { xs: "2.1rem", sm: "3rem", md: "5rem" }, }}>
+                            <Typography component="h1" sx={{ fontWeight: 700, lineHeight: 1, mb: 2, fontSize: { xs: "2.1rem", sm: "3rem", md: "5rem" }, fontFamily: "var(--font-playfair)" }}>
                                 Events
                             </Typography>
 
-                            <Typography sx={{ color: "text.secondary", mb: 3 }}>
+                            <Typography sx={{ color: "text.secondary", mb: 3, fontFamily: "var(--font-poppins)", fontSize: "1.1rem" }}>
                                 The one-stop shop for all your decor needs
                             </Typography>
 
                             <Box sx={{ display: "flex", gap: 2, flexWrap: "wrap", justifyContent: { xs: "center", md: "flex-start" } }}>
-                                <Button variant="contained" sx={{ bgcolor: "#B88658", px: 3, py: 1.2, "&:hover": { bgcolor: "black" }, }}>
+                                <Button variant="contained" sx={{ bgcolor: "#B88658", px: 3, py: 1.2, "&:hover": { bgcolor: "black" }, fontFamily: "var(--font-montserrat)", fontWeight: 600 }}>
                                     Request A Quote
                                 </Button>
 
-                                <Button variant="contained" sx={{ bgcolor: "#222222", px: 3, py: 1.2, "&:hover": { bgcolor: "#B88658" } }}>
+                                <Button variant="contained" sx={{ bgcolor: "#222222", px: 3, py: 1.2, "&:hover": { bgcolor: "#B88658" }, fontFamily: "var(--font-montserrat)", fontWeight: 600 }}>
                                     Make Your Own Quote
                                 </Button>
                             </Box>
                         </Box>
                     </Box>
 
-                    <Box sx={{ flex: 1, display: { xs: "none", md: "block" }, backgroundImage: `linear-gradient(to right, #fdf7f4 0%, rgba(253,247,244,0) 45%), url(${imageUrl})`, backgroundPosition: "center right", backgroundSize: "cover", backgroundRepeat: "no-repeat", minHeight: "86vh", }} />
-
+                    <Box sx={{ flex: 1, display: { xs: "none", md: "block" }, backgroundImage: `linear-gradient(to right, #fdf7f4 0%, rgba(253,247,244,0) 45%), url(${imageUrl})`, backgroundPosition: "center right", backgroundSize: "cover", backgroundRepeat: "no-repeat", minHeight: "86vh" }} />
                     <Box component="img" src={imageUrl} alt="Event Decor" sx={{ display: { xs: "block", md: "none" }, width: "100%", height: "auto", objectFit: "cover" }}
                     />
                 </Box>
             </Box>
 
             <Box sx={{ py: 8, textAlign: "center" }}>
-                <Typography variant="h4" sx={{ fontWeight: "bold", mb: 1 }}>Our Services</Typography>
-                <Typography sx={{ color: "text.secondary", mb: 2 }}>We Create, You Celebrate!</Typography>
+                <Typography variant="h3" sx={{ fontWeight: "bold", mb: 1, fontFamily: "var(--font-playfair)" }}>Our Services</Typography>
+                <Typography sx={{ color: "text.secondary", mb: 2, fontFamily: "var(--font-poppins)", fontSize: "1.2rem" }}>We Create, You Celebrate!</Typography>
 
                 <Box sx={{ width: "80px", height: "2px", backgroundColor: "#A66C47", mx: "auto", mb: 4 }} />
 
@@ -83,7 +82,7 @@ export default function Home() {
                     {services.map((service, index) => (
                         <Grid key={index} sx={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
                             <CheckCircleIcon sx={{ color: "green", fontSize: 20, mr: 1 }} />
-                            <Typography>{service}</Typography>
+                            <Typography sx={{ fontFamily: "var(--font-poppins)" }}>{service}</Typography>
                         </Grid>
                     ))}
                 </Grid>
@@ -92,40 +91,40 @@ export default function Home() {
             <Box sx={{ py: 8, backgroundColor: "#fdf7f4" }}>
                 <Box sx={{ display: "flex", flexDirection: { xs: "column", lg: "row" }, maxWidth: "1200px", mx: "auto", px: { xs: 3, md: 6 }, gap: 4, }}>
                     <Box sx={{ flex: 1, display: "flex", flexDirection: "column", justifyContent: "center", pr: { lg: 4 }, }}>
-                        <Typography variant="h3" sx={{ fontWeight: "bold", mb: 2, fontSize: { xs: "2rem", md: "2.5rem" }, color: "#333", }}>
+                        <Typography variant="h3" sx={{ fontWeight: "bold", mb: 2, fontSize: { xs: "2rem", md: "2.5rem" }, color: "#333", fontFamily: "var(--font-playfair)" }}>
                             About Us
                         </Typography>
 
-                        <Typography variant="h5" sx={{ color: "#666", mb: 2, fontWeight: 400, }}>
+                        <Typography variant="h5" sx={{ color: "#666", mb: 2, fontWeight: 500, fontFamily: "var(--font-playfair)" }}>
                             What Classic Events is all about.
                         </Typography>
 
-                        <Typography sx={{ color: "#B88658", fontStyle: "italic", fontSize: "1.1rem", mb: 3, }}>
+                        <Typography sx={{ color: "#B88658", fontStyle: "italic", fontSize: "1.1rem", mb: 3, fontFamily: "var(--font-poppins)" }}>
                             We turn your dream event into reality!
                         </Typography>
 
-                        <Typography sx={{ color: "#666", mb: 3, lineHeight: 1.6, }}>
+                        <Typography sx={{ color: "#666", mb: 3, lineHeight: 1.6, fontFamily: "var(--font-poppins)" }}>
                             Our team is here to make your event unique and truly amazing.
                         </Typography>
 
-                        <Typography sx={{ color: "#666", mb: 4, lineHeight: 1.6, }}>
+                        <Typography sx={{ color: "#666", mb: 4, lineHeight: 1.6, fontFamily: "var(--font-poppins)" }}>
                             Our aim is to help you make your event a memorable and stress-free. Be it
                             your wedding, birthday party, lobola ceremony, graduation party and many
                             more, we will bring your dream to life.
                         </Typography>
 
                         <Box sx={{ display: "flex", gap: 2, flexWrap: "wrap", }}>
-                            <Button variant="contained" sx={{ bgcolor: "#B88658", px: 4, py: 1.5, "&:hover": { bgcolor: "black" }, textTransform: "none", }}>
+                            <Button variant="contained" sx={{ bgcolor: "#B88658", px: 4, py: 1.5, "&:hover": { bgcolor: "black" }, textTransform: "none", fontFamily: "var(--font-montserrat)", fontWeight: 600 }}>
                                 Know More About Us
                             </Button>
 
-                            <Button variant="contained" sx={{ bgcolor: "black", px: 4, py: 1.5, "&:hover": { bgcolor: "#B88658" }, textTransform: "none", }}>
+                            <Button variant="contained" sx={{ bgcolor: "black", px: 4, py: 1.5, "&:hover": { bgcolor: "#B88658" }, textTransform: "none", fontFamily: "var(--font-montserrat)", fontWeight: 600 }}>
                                 Get In Touch
                             </Button>
                         </Box>
                     </Box>
 
-                    <Box sx={{ flex: 1, display: "flex", lexDirection: "column", gap: 2, position: "relative", }}>
+                    <Box sx={{ flex: 1, display: "flex", flexDirection: "column", gap: 2, position: "relative", }}>
                         <Box sx={{ width: "100%", alignSelf: "flex-end", position: "relative", }}>
                             <Box component="img" src={aboutImage1} alt="Event Setup" sx={{ width: "100%", height: "400px", objectFit: "cover", borderRadius: 2, }} />
                         </Box>
@@ -138,7 +137,7 @@ export default function Home() {
             </Box>
 
             <Box sx={{ py: 8, textAlign: "center", backgroundColor: "white" }}>
-                <Typography variant="h3" sx={{ fontWeight: "italic", mb: 2, color: "#333", fontStyle: "italic" }}>
+                <Typography variant="h3" sx={{ fontWeight: 500, mb: 2, color: "#333", fontFamily: "var(--font-playfair)" }}>
                     Some of our clients include:
                 </Typography>
 
@@ -154,25 +153,22 @@ export default function Home() {
                         "Moon 6 Sixpence",
                         "Inimitable Wedding Venue",
                     ].map((client, index) => (
-                        <Box key={index} sx={{ px: 3, py: 2, backgroundColor: "#B88568", borderRadius: 1, border: "1px solid #e0e0e0", textAlign: "center", transition: "all 0.3s ease-in-out", fontSize: "0.95rem", fontWeight: 600, color: "#333", "&:hover": { transform: "translateY(-4px)", backgroundColor: "#fdf7f4", borderColor: "#A66C47", boxShadow: "0 4px 12px rgba(0,0,0,0.1)", }, }}>{client}</Box>
+                        <Box key={index} sx={{ px: 3, py: 2, backgroundColor: "#B88568", borderRadius: 1, border: "1px solid #e0e0e0", textAlign: "center", transition: "all 0.3s ease-in-out", fontSize: "0.95rem", fontWeight: 600, color: "#333", fontFamily: "var(--font-montserrat)", "&:hover": { transform: "translateY(-4px)", backgroundColor: "#fdf7f4", borderColor: "#A66C47", boxShadow: "0 4px 12px rgba(0,0,0,0.1)", }, }}>{client}</Box>
                     ))}
                 </Box>
             </Box>
 
             <Box sx={{ py: 8, textAlign: "center", backgroundColor: "#fdf7f4" }}>
-                <Typography variant="h3" sx={{ fontWeight: "italic", mb: 2, color: "#333", fontStyle: "italic" }}>
+                <Typography variant="h3" sx={{ fontWeight: 500, mb: 2, color: "#333", fontFamily: "var(--font-playfair)" }}>
                     What our clients say about us.
                 </Typography>
 
                 <Box sx={{ py: 8, textAlign: "left", backgroundColor: "#fdf7f4" }}>
-                    <Typography variant="h6" sx={{ fontWeight: "bold", mb: 2, }}>
+                    <Typography variant="h6" sx={{ fontWeight: "bold", mb: 2, fontFamily: "var(--font-montserrat)" }}>
                         EXCELLENT
                     </Typography>
                 </Box>
-
             </Box>
-
-
         </>
     );
 }
