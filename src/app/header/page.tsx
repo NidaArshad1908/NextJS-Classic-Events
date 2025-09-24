@@ -113,6 +113,7 @@ export default function Header() {
                             sx={{
                                 color: "white",
                                 fontSize: "0.875rem",
+                                fontFamily: "var(--font-poppins)",
                                 "&:hover": { color: "#b08968" },
                             }}
                         >
@@ -127,6 +128,7 @@ export default function Header() {
                                     sx={{
                                         color: "white",
                                         fontSize: "0.875rem",
+                                        fontFamily: "var(--font-poppins)",
                                         "&:hover": { color: "#b08968" },
                                     }}
                                 >
@@ -141,6 +143,7 @@ export default function Header() {
                                     sx={{
                                         color: "white",
                                         fontSize: "0.875rem",
+                                        fontFamily: "var(--font-poppins)",
                                         "&:hover": { color: "#b08968" },
                                     }}
                                 >
@@ -158,6 +161,7 @@ export default function Header() {
                             sx={{
                                 color: "white",
                                 fontSize: "0.875rem",
+                                fontFamily: "var(--font-poppins)",
                                 "&:hover": { color: "#b08968" },
                             }}
                         >
@@ -166,6 +170,7 @@ export default function Header() {
                     </Box>
                 </Toolbar>
             </AppBar>
+
             <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center", px: 40, py: 4, backgroundColor: "#fff", borderBottom: "1px solid #b08968" }}>
                 <Box
                     component="form"
@@ -187,31 +192,33 @@ export default function Header() {
                         value={searchQuery}
                         onChange={handleSearchChange}
                         inputProps={{ "aria-label": "search equipment" }}
-                        sx={{ flex: 1, color: "#000" }}
+                        sx={{
+                            flex: 1,
+                            color: "#000",
+                            fontFamily: "var(--font-poppins)",
+                            "& input::placeholder": {
+                                fontFamily: "var(--font-poppins)",
+                                opacity: 0.7
+                            }
+                        }}
                     />
                 </Box>
                 <Box sx={{ display: "flex", alignItems: "center", gap: 2, ml: "auto" }}>
                     <Box
-                        sx={{
-                            textAlign: "right",
-                            color: "#000",
-                            display: { xs: "none", sm: "block" },
-                            cursor: "pointer",
-                        }}
+                        sx={{ textAlign: "right", color: "#000", display: { xs: "none", sm: "block" }, cursor: "pointer" }}
                         onClick={() => router.push("/quote")}
                     >
                         <Typography
                             variant="body2"
-                            sx={{
-                                fontWeight: "bold",
-                                fontSize: "0.9rem",
-                                color: "#000",
-                            }}
+                            sx={{ fontWeight: "bold", fontSize: "0.9rem", color: "#000", fontFamily: "var(--font-montserrat)" }}
                         >
                             ADD TO QUOTE
                         </Typography>
                         <Box sx={{ display: "flex", alignItems: "center" }}>
-                            <Typography variant="body2" sx={{ color: "#000", mr: 1 }}>
+                            <Typography
+                                variant="body2"
+                                sx={{ color: "#000", mr: 1, fontFamily: "var(--font-montserrat)" }}
+                            >
                                 R0.00
                             </Typography>
                         </Box>
@@ -228,15 +235,13 @@ export default function Header() {
                         color="inherit"
                         aria-label="menu"
                         onClick={toggleMobileMenu}
-                        sx={{
-                            color: "#b08968",
-                            display: { xs: "block", md: "none" },
-                        }}
+                        sx={{ color: "#b08968", display: { xs: "block", md: "none" } }}
                     >
                         <MenuIcon />
                     </IconButton>
                 </Box>
             </Box>
+
             <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center", backgroundColor: "#FFF6F0", gap: 10 }}>
                 <Button
                     onClick={handleCategoriesClick}
@@ -258,7 +263,7 @@ export default function Header() {
                     <MenuIcon sx={{ fontSize: 18, color: "white", mr: 1 }} />
                     <Typography
                         variant="body2"
-                        sx={{ color: "white", fontWeight: "500", fontSize: 16 }}
+                        sx={{ color: "white", fontWeight: "500", fontSize: 16, fontFamily: "var(--font-montserrat)" }}
                     >
                         Show All Categories
                     </Typography>
@@ -299,14 +304,14 @@ export default function Header() {
                             }}
                         >
                             {typeof category.icon === "string" ? (
-                                <Typography component="span" fontSize="18px">
-                                    {category.icon}
-                                </Typography>
+                                <Typography component="span" fontSize="18px">{category.icon}</Typography>
                             ) : (
                                 <category.icon fontSize="small" />
                             )}
-                            {/* <span style={{ fontSize: "18px" }}>{category.icon}</span> */}
-                            <Typography variant="body2" sx={{ color: "#2C302B" }}>
+                            <Typography
+                                variant="body2"
+                                sx={{ color: "#2C302B", fontFamily: "var(--font-poppins)" }}
+                            >
                                 {category.name}
                             </Typography>
                         </MenuItem>
@@ -318,10 +323,7 @@ export default function Header() {
                         value={currentTab === -1 ? 0 : currentTab}
                         textColor='inherit'
                         TabIndicatorProps={{
-                            style: {
-                                backgroundColor: "#D7B78E",
-                                height: "3px",
-                            },
+                            style: { backgroundColor: "#D7B78E", height: "3px" },
                         }}
                     >
                         {navItems.map((item, index) => (
@@ -331,7 +333,13 @@ export default function Header() {
                                 onClick={() => router.push(item.href)}
                                 sx={{
                                     color: "black",
-                                    "&.Mui-selected": { color: "black" },
+                                    fontFamily: "var(--font-montserrat)",
+                                    fontWeight: 500,
+                                    textTransform: "none",
+                                    "&.Mui-selected": {
+                                        color: "black",
+                                        fontWeight: 600,
+                                    },
                                 }}
                             />
                         ))}
