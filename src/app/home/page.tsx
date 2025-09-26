@@ -159,16 +159,242 @@ export default function Home() {
             </Box>
 
             <Box sx={{ py: 8, textAlign: "center", backgroundColor: "#fdf7f4" }}>
-                <Typography variant="h3" sx={{ fontWeight: 500, mb: 2, color: "#333", fontFamily: "var(--font-playfair)" }}>
-                    What our clients say about us.
-                </Typography>
+                <Typography variant="h3" sx={{ fontWeight: 500, mb: 8, color: "#333", fontFamily: "var(--font-playfair)" }}>What our clients say about us.</Typography>
 
-                <Box sx={{ py: 8, textAlign: "left", backgroundColor: "#fdf7f4" }}>
-                    <Typography variant="h6" sx={{ fontWeight: "bold", mb: 2, fontFamily: "var(--font-montserrat)" }}>
-                        EXCELLENT
-                    </Typography>
+                <Box sx={{ display: "flex", flexDirection: { xs: "column", lg: "row" }, maxWidth: "1200px", mx: "auto", px: { xs: 3, md: 6 }, gap: 4 }}>
+                    <Box sx={{ flex: 1, display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", textAlign: "center" }}>
+                        <Typography variant="h4" sx={{ fontWeight: "bold", mb: 2, fontFamily: "var(--font-montserrat)", color: "#333" }}>EXCELLENT</Typography>
+
+                        <Box sx={{ display: "flex", gap: 0.5, mb: 2 }}>
+                            {[1, 2, 3, 4, 5].map((star) => (
+                                <Typography key={star} sx={{ fontSize: "2rem", color: "#FFD700" }}>★</Typography>
+                            ))}
+                        </Box>
+
+                        <Typography sx={{ color: "#666", mb: 1, fontFamily: "var(--font-poppins)" }}>Based on 69 reviews</Typography>
+
+                        <Box sx={{ display: "flex", alignItems: "center", gap: 0.3 }}>
+                            <Typography sx={{ fontSize: "2rem", fontWeight: "bold", color: "#4285F4", fontFamily: "var(--font-poppins)" }}>G</Typography>
+                            <Typography sx={{ fontSize: "2rem", fontWeight: "bold", color: "#EA4335", fontFamily: "var(--font-poppins)" }}>o</Typography>
+                            <Typography sx={{ fontSize: "2rem", fontWeight: "bold", color: "#FBBC05", fontFamily: "var(--font-poppins)" }}>o</Typography>
+                            <Typography sx={{ fontSize: "2rem", fontWeight: "bold", color: "#4285F4", fontFamily: "var(--font-poppins)" }}>g</Typography>
+                            <Typography sx={{ fontSize: "2rem", fontWeight: "bold", color: "#34A853", fontFamily: "var(--font-poppins)" }}>l</Typography>
+                            <Typography sx={{ fontSize: "2rem", fontWeight: "bold", color: "#EA4335", fontFamily: "var(--font-poppins)" }}>e</Typography>
+                        </Box>
+                    </Box>
+
+                    <Box sx={{ flex: 2, display: "flex", flexDirection: "row", gap: 3, overflowX: "auto" }}>
+                        <Box sx={{ minWidth: "300px", backgroundColor: "white", borderRadius: 3, p: 3, boxShadow: "0 2px 10px rgba(0,0,0,0.1)", transition: "all 0.3s ease", "&:hover": { transform: "translateY(-8px)", boxShadow: "0 8px 25px rgba(0,0,0,0.15)" } }}>
+                            <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
+                                <Box sx={{ width: 40, height: 40, borderRadius: "50%", backgroundColor: "#B88658", display: "flex", alignItems: "center", justifyContent: "center", mr: 2 }}>
+                                    <Typography sx={{ color: "white", fontWeight: "bold", fontFamily: "var(--font-montserrat)" }}>L</Typography>
+                                </Box>
+                                <Box>
+                                    <Typography sx={{ fontWeight: "bold", fontSize: "0.9rem", fontFamily: "var(--font-montserrat)" }}>Lonia Kgosinkwe</Typography>
+                                    <Typography sx={{ fontSize: "0.75rem", color: "#666", fontFamily: "var(--font-poppins)" }}>2025-07-06</Typography>
+                                </Box>
+                            </Box>
+
+                            <Box sx={{ display: "flex", gap: 0.2, mb: 2 }}>
+                                {[1, 2, 3, 4, 5].map((star) => (
+                                    <Typography key={star} sx={{ fontSize: "1rem", color: "#FFD700" }}>★</Typography>
+                                ))}
+                                <Typography sx={{ ml: 1, fontSize: "0.8rem", color: "#4285F4" }}>✓</Typography>
+                            </Box>
+
+                            <Typography sx={{ fontSize: "0.9rem", lineHeight: 1.5, color: "#333", fontFamily: "var(--font-poppins)" }}>
+                                Wow! Thank you so much for your great service and bueatiful decor.
+                            </Typography>
+                        </Box>
+
+                        <Box sx={{ minWidth: "300px", backgroundColor: "white", borderRadius: 3, p: 3, boxShadow: "0 2px 10px rgba(0,0,0,0.1)", transition: "all 0.3s ease", "&:hover": { transform: "translateY(-8px)", boxShadow: "0 8px 25px rgba(0,0,0,0.15)" } }}>
+                            <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
+                                <Box sx={{ width: 40, height: 40, borderRadius: "50%", backgroundColor: "#6B73FF", display: "flex", alignItems: "center", justifyContent: "center", mr: 2 }}>
+                                    <Typography sx={{ color: "white", fontWeight: "bold", fontFamily: "var(--font-montserrat)" }}>N</Typography>
+                                </Box>
+                                <Box>
+                                    <Typography sx={{ fontWeight: "bold", fontSize: "0.9rem", fontFamily: "var(--font-montserrat)" }}>Natalie Fung</Typography>
+                                    <Typography sx={{ fontSize: "0.75rem", color: "#666", fontFamily: "var(--font-poppins)" }}>2025-06-30</Typography>
+                                </Box>
+                            </Box>
+
+                            <Box sx={{ display: "flex", gap: 0.2, mb: 2 }}>
+                                {[1, 2, 3, 4, 5].map((star) => (
+                                    <Typography key={star} sx={{ fontSize: "1rem", color: "#FFD700" }}>★</Typography>
+                                ))}
+                                <Typography sx={{ ml: 1, fontSize: "0.8rem", color: "#4285F4" }}>✓</Typography>
+                            </Box>
+
+                            <Typography sx={{ fontSize: "0.9rem", lineHeight: 1.5, color: "#333", fontFamily: "var(--font-poppins)" }}>
+                                From the website, to Classic warm & friendly personality.
+                            </Typography>
+                        </Box>
+
+                        <Box sx={{ minWidth: "300px", backgroundColor: "white", borderRadius: 3, p: 3, boxShadow: "0 2px 10px rgba(0,0,0,0.1)", transition: "all 0.3s ease", "&:hover": { transform: "translateY(-8px)", boxShadow: "0 8px 25px rgba(0,0,0,0.15)" } }}>
+                            <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
+                                <Box sx={{ width: 40, height: 40, borderRadius: "50%", backgroundColor: "#8B4513", display: "flex", alignItems: "center", justifyContent: "center", mr: 2 }}>
+                                    <Typography sx={{ color: "white", fontWeight: "bold", fontFamily: "var(--font-montserrat)" }}>M</Typography>
+                                </Box>
+                                <Box>
+                                    <Typography sx={{ fontWeight: "bold", fontSize: "0.9rem", fontFamily: "var(--font-montserrat)" }}>Moments in Time</Typography>
+                                    <Typography sx={{ fontSize: "0.75rem", color: "#666", fontFamily: "var(--font-poppins)" }}>2025-06-22</Typography>
+                                </Box>
+                            </Box>
+
+                            <Box sx={{ display: "flex", gap: 0.2, mb: 2 }}>
+                                {[1, 2, 3, 4, 5].map((star) => (
+                                    <Typography key={star} sx={{ fontSize: "1rem", color: "#FFD700" }}>★</Typography>
+                                ))}
+                                <Typography sx={{ ml: 1, fontSize: "0.8rem", color: "#4285F4" }}>✓</Typography>
+                            </Box>
+
+                            <Typography sx={{ fontSize: "0.9rem", lineHeight: 1.5, color: "#333", fontFamily: "var(--font-poppins)" }}>
+                                Excellent service, on time delivery and decor hiring items were clean and in excellent condition.
+                            </Typography>
+                        </Box>
+
+                        <Box sx={{ minWidth: "300px", backgroundColor: "white", borderRadius: 3, p: 3, boxShadow: "0 2px 10px rgba(0,0,0,0.1)", transition: "all 0.3s ease", "&:hover": { transform: "translateY(-8px)", boxShadow: "0 8px 25px rgba(0,0,0,0.15)" } }}>
+                            <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
+                                <Box sx={{ width: 40, height: 40, borderRadius: "50%", backgroundColor: "#B88658", display: "flex", alignItems: "center", justifyContent: "center", mr: 2 }}>
+                                    <Typography sx={{ color: "white", fontWeight: "bold", fontFamily: "var(--font-montserrat)" }}>R</Typography>
+                                </Box>
+                                <Box>
+                                    <Typography sx={{ fontWeight: "bold", fontSize: "0.9rem", fontFamily: "var(--font-montserrat)" }}> Rudzani Tshikota </Typography>
+                                    <Typography sx={{ fontSize: "0.75rem", color: "#666", fontFamily: "var(--font-poppins)" }}>2025-05-04</Typography>
+                                </Box>
+                            </Box>
+
+                            <Box sx={{ display: "flex", gap: 0.2, mb: 2 }}>
+                                {[1, 2, 3, 4, 5].map((star) => (
+                                    <Typography key={star} sx={{ fontSize: "1rem", color: "#FFD700" }}>★</Typography>
+                                ))}
+                                <Typography sx={{ ml: 1, fontSize: "0.8rem", color: "#4285F4" }}>✓</Typography>
+                            </Box>
+
+                            <Typography sx={{ fontSize: "0.9rem", lineHeight: 1.5, color: "#333", fontFamily: "var(--font-poppins)" }}>
+                                Thank you so much @ Classic Events for making our events special.
+                            </Typography>
+                        </Box>
+
+                        <Box sx={{ minWidth: "300px", backgroundColor: "white", borderRadius: 3, p: 3, boxShadow: "0 2px 10px rgba(0,0,0,0.1)", transition: "all 0.3s ease", "&:hover": { transform: "translateY(-8px)", boxShadow: "0 8px 25px rgba(0,0,0,0.15)" } }}>
+                            <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
+                                <Box sx={{ width: 40, height: 40, borderRadius: "50%", backgroundColor: "#6B73FF", display: "flex", alignItems: "center", justifyContent: "center", mr: 2 }}>
+                                    <Typography sx={{ color: "white", fontWeight: "bold", fontFamily: "var(--font-montserrat)" }}>M</Typography>
+                                </Box>
+                                <Box>
+                                    <Typography sx={{ fontWeight: "bold", fontSize: "0.9rem", fontFamily: "var(--font-montserrat)" }}> Melissa Coetzee </Typography>
+                                    <Typography sx={{ fontSize: "0.75rem", color: "#666", fontFamily: "var(--font-poppins)" }}>2025-04-22</Typography>
+                                </Box>
+                            </Box>
+
+                            <Box sx={{ display: "flex", gap: 0.2, mb: 2 }}>
+                                {[1, 2, 3, 4, 5].map((star) => (
+                                    <Typography key={star} sx={{ fontSize: "1rem", color: "#FFD700" }}>★</Typography>
+                                ))}
+                                <Typography sx={{ ml: 1, fontSize: "0.8rem", color: "#4285F4" }}>✓</Typography>
+                            </Box>
+
+                            <Typography sx={{ fontSize: "0.9rem", lineHeight: 1.5, color: "#333", fontFamily: "var(--font-poppins)" }}>
+                                Thank you Classic and crew. Your service is impeccable and made this a smooth experience.
+                            </Typography>
+                        </Box>
+
+                        <Box sx={{ minWidth: "300px", backgroundColor: "white", borderRadius: 3, p: 3, boxShadow: "0 2px 10px rgba(0,0,0,0.1)", transition: "all 0.3s ease", "&:hover": { transform: "translateY(-8px)", boxShadow: "0 8px 25px rgba(0,0,0,0.15)" } }}>
+                            <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
+                                <Box sx={{ width: 40, height: 40, borderRadius: "50%", backgroundColor: "#8B4513", display: "flex", alignItems: "center", justifyContent: "center", mr: 2 }}>
+                                    <Typography sx={{ color: "white", fontWeight: "bold", fontFamily: "var(--font-montserrat)" }}>N</Typography>
+                                </Box>
+                                <Box>
+                                    <Typography sx={{ fontWeight: "bold", fontSize: "0.9rem", fontFamily: "var(--font-montserrat)" }}> Ntando Magadla </Typography>
+                                    <Typography sx={{ fontSize: "0.75rem", color: "#666", fontFamily: "var(--font-poppins)" }}>2025-03-02</Typography>
+                                </Box>
+                            </Box>
+
+                            <Box sx={{ display: "flex", gap: 0.2, mb: 2 }}>
+                                {[1, 2, 3, 4, 5].map((star) => (
+                                    <Typography key={star} sx={{ fontSize: "1rem", color: "#FFD700" }}>★</Typography>
+                                ))}
+                                <Typography sx={{ ml: 1, fontSize: "0.8rem", color: "#4285F4" }}>✓</Typography>
+                            </Box>
+
+                            <Typography sx={{ fontSize: "0.9rem", lineHeight: 1.5, color: "#333", fontFamily: "var(--font-poppins)" }}>
+                                Classic and her team are absolutely great job. Punctual, friendly, caring and reasonable.
+                            </Typography>
+                        </Box>
+
+                        <Box sx={{ minWidth: "300px", backgroundColor: "white", borderRadius: 3, p: 3, boxShadow: "0 2px 10px rgba(0,0,0,0.1)", transition: "all 0.3s ease", "&:hover": { transform: "translateY(-8px)", boxShadow: "0 8px 25px rgba(0,0,0,0.15)" } }}>
+                            <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
+                                <Box sx={{ width: 40, height: 40, borderRadius: "50%", backgroundColor: "#B88658", display: "flex", alignItems: "center", justifyContent: "center", mr: 2 }}>
+                                    <Typography sx={{ color: "white", fontWeight: "bold", fontFamily: "var(--font-montserrat)" }}>J</Typography>
+                                </Box>
+                                <Box>
+                                    <Typography sx={{ fontWeight: "bold", fontSize: "0.9rem", fontFamily: "var(--font-montserrat)" }}> Janine Ryan </Typography>
+                                    <Typography sx={{ fontSize: "0.75rem", color: "#666", fontFamily: "var(--font-poppins)" }}>2025-02-23</Typography>
+                                </Box>
+                            </Box>
+
+                            <Box sx={{ display: "flex", gap: 0.2, mb: 2 }}>
+                                {[1, 2, 3, 4, 5].map((star) => (
+                                    <Typography key={star} sx={{ fontSize: "1rem", color: "#FFD700" }}>★</Typography>
+                                ))}
+                                <Typography sx={{ ml: 1, fontSize: "0.8rem", color: "#4285F4" }}>✓</Typography>
+                            </Box>
+
+                            <Typography sx={{ fontSize: "0.9rem", lineHeight: 1.5, color: "#333", fontFamily: "var(--font-poppins)" }}>
+                                Great service. Lillian is such an amazing helpful person, her items are in amazing condition
+                            </Typography>
+                        </Box>
+
+                        <Box sx={{ minWidth: "300px", backgroundColor: "white", borderRadius: 3, p: 3, boxShadow: "0 2px 10px rgba(0,0,0,0.1)", transition: "all 0.3s ease", "&:hover": { transform: "translateY(-8px)", boxShadow: "0 8px 25px rgba(0,0,0,0.15)" } }}>
+                            <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
+                                <Box sx={{ width: 40, height: 40, borderRadius: "50%", backgroundColor: "#6B73FF", display: "flex", alignItems: "center", justifyContent: "center", mr: 2 }}>
+                                    <Typography sx={{ color: "white", fontWeight: "bold", fontFamily: "var(--font-montserrat)" }}>D</Typography>
+                                </Box>
+                                <Box>
+                                    <Typography sx={{ fontWeight: "bold", fontSize: "0.9rem", fontFamily: "var(--font-montserrat)" }}> Danelle Tyler </Typography>
+                                    <Typography sx={{ fontSize: "0.75rem", color: "#666", fontFamily: "var(--font-poppins)" }}>2025-02-23</Typography>
+                                </Box>
+                            </Box>
+
+                            <Box sx={{ display: "flex", gap: 0.2, mb: 2 }}>
+                                {[1, 2, 3, 4, 5].map((star) => (
+                                    <Typography key={star} sx={{ fontSize: "1rem", color: "#FFD700" }}>★</Typography>
+                                ))}
+                                <Typography sx={{ ml: 1, fontSize: "0.8rem", color: "#4285F4" }}>✓</Typography>
+                            </Box>
+
+                            <Typography sx={{ fontSize: "0.9rem", lineHeight: 1.5, color: "#333", fontFamily: "var(--font-poppins)" }}>
+                                We rented a candy cart and back drops from Lilly bees events. We received excellent service
+                            </Typography>
+                        </Box>
+
+                        <Box sx={{ minWidth: "300px", backgroundColor: "white", borderRadius: 3, p: 3, boxShadow: "0 2px 10px rgba(0,0,0,0.1)", transition: "all 0.3s ease", "&:hover": { transform: "translateY(-8px)", boxShadow: "0 8px 25px rgba(0,0,0,0.15)" } }}>
+                            <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
+                                <Box sx={{ width: 40, height: 40, borderRadius: "50%", backgroundColor: "#8B4513", display: "flex", alignItems: "center", justifyContent: "center", mr: 2 }}>
+                                    <Typography sx={{ color: "white", fontWeight: "bold", fontFamily: "var(--font-montserrat)" }}>N</Typography>
+                                </Box>
+                                <Box>
+                                    <Typography sx={{ fontWeight: "bold", fontSize: "0.9rem", fontFamily: "var(--font-montserrat)" }}> Nonto Khumalo </Typography>
+                                    <Typography sx={{ fontSize: "0.75rem", color: "#666", fontFamily: "var(--font-poppins)" }}>2024-12-09</Typography>
+                                </Box>
+                            </Box>
+
+                            <Box sx={{ display: "flex", gap: 0.2, mb: 2 }}>
+                                {[1, 2, 3, 4, 5].map((star) => (
+                                    <Typography key={star} sx={{ fontSize: "1rem", color: "#FFD700" }}>★</Typography>
+                                ))}
+                                <Typography sx={{ ml: 1, fontSize: "0.8rem", color: "#4285F4" }}>✓</Typography>
+                            </Box>
+
+                            <Typography sx={{ fontSize: "0.9rem", lineHeight: 1.5, color: "#333", fontFamily: "var(--font-poppins)" }}>
+                                Great service, quality equipment
+                            </Typography>
+                        </Box>
+
+                    </Box>
                 </Box>
             </Box>
+
         </>
     );
 }
