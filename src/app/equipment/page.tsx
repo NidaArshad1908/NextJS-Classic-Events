@@ -99,7 +99,7 @@ export default function EquipmentForHire() {
                     position: "relative",
                     width: "100vw",
                     height: { xs: "300px", md: "500px" },
-                     margin: 0,
+                    margin: 0,
                     padding: 0,
                     marginLeft: "calc(-50vw + 50%)",
                     marginRight: "calc(-50vw + 50%)",
@@ -108,21 +108,21 @@ export default function EquipmentForHire() {
                 <img
                     src="https://media.istockphoto.com/id/1197789061/photo/wedding-table-decoration-rustic-style.jpg?s=612x612&w=0&k=20&c=IJx-ctLD_BpSCuINW3nzVJS5xm7YUJR36wCYZ_ts6Tg="
                     alt="Our Equipment"
-                    style={{  width: "100%", height: "100%", objectFit: "cover",display: "block"  }}
+                    style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
                 />
                 <Box
                     sx={{
-                       position: "absolute",
-                       top: 0,
-                       left: 0,
-                       width: "100%",
-                       height: "100%",
-                       backgroundColor: "rgba(0,0,0,0.4)",
-                       display: "flex",
-                       flexDirection: "column",
-                       justifyContent: "center",
-                       alignItems: "center",
-                       px: 2,
+                        position: "absolute",
+                        top: 0,
+                        left: 0,
+                        width: "100%",
+                        height: "100%",
+                        backgroundColor: "rgba(0,0,0,0.4)",
+                        display: "flex",
+                        flexDirection: "column",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        px: 2,
                     }}
                 >
                     <Typography
@@ -186,220 +186,220 @@ export default function EquipmentForHire() {
                 </Box>
             </Box>
 
-        
-<Box
-    sx={{
-        p: 3,
-        backgroundColor: "#white",
-        minHeight: "100vh",
-    }}
->
-    <Box
-        sx={{
-            display: "flex",
-            flexDirection: { xs: "column", lg: "row" },
-            gap: 3,
-            maxWidth: "1400px",
-            margin: "0 auto",
-        }}
-    >
-        <Box
-            sx={{
-                width: { xs: "100%", lg: "280px" },
-                flexShrink: 0,
-            }}
-        >
-            <Typography
-                variant="h6"
-                gutterBottom
-                sx={{
-                    mb: 2,
-                    fontWeight: 600,
-                    color: "#333",
-                    fontSize: "18px",
-                }}
-            >
-                Product Categories Hire
-            </Typography>
-            
-            <Box sx={{ mb: 3 }}>
-                <FormControl fullWidth variant="outlined">
-                    <Select
-                        value={category}
-                        displayEmpty
-                        onChange={(e) => setCategory(e.target.value)}
-                        sx={{
-                            backgroundColor: "white",
-                            "& .MuiSelect-select": {
-                                padding: "12px 14px",
-                                color: category ? "#333" : "#999",
-                            },
-                        }}
-                    >
-                        <MenuItem value="" sx={{ color: "#999" }}>
-                            Select a category
-                        </MenuItem>
-                        <MenuItem value="table">Table</MenuItem>
-                        <MenuItem value="linen">Linen</MenuItem>
-                        <MenuItem value="backdrop">Backdrop</MenuItem>
-                        <MenuItem value="couches">Couches</MenuItem>
-                        <MenuItem value="catering">Catering</MenuItem>
-                        <MenuItem value="cake-stand">Cake Stand</MenuItem>
-                    </Select>
-                </FormControl>
-            </Box>
-        </Box>
 
-        <Box sx={{ flex: 1 }}>
             <Box
                 sx={{
-                    display: "flex",
-                    flexDirection: { xs: "column", sm: "row" },
-                    alignItems: { xs: "stretch", sm: "center" },
-                    justifyContent: "space-between",
-                    gap: 2,
-                    mb: 3,
-                    p: 2,
-                    backgroundColor: "white",
-                    borderRadius: "4px",
-                    boxShadow: "0 1px 3px rgba(0,0,0,0.1)",
+                    p: 3,
+                    backgroundColor: "#white",
+                    minHeight: "100vh",
                 }}
             >
-                <Typography
+                <Box
                     sx={{
-                        color: "#666",
-                        fontSize: "14px",
+                        display: "flex",
+                        flexDirection: { xs: "column", lg: "row" },
+                        gap: 3,
+                        maxWidth: "1400px",
+                        margin: "0 auto",
                     }}
                 >
-                    Showing 1–9 of 235 results
-                </Typography>
-
-                <Box sx={{ width: { xs: "100%", sm: "200px" } }}>
-                    <FormControl fullWidth variant="outlined">
-                        <Select
-                            value={sort}
-                            onChange={(e) => setSort(e.target.value)}
+                    <Box
+                        sx={{
+                            width: { xs: "100%", lg: "280px" },
+                            flexShrink: 0,
+                        }}
+                    >
+                        <Typography
+                            variant="h6"
+                            gutterBottom
                             sx={{
-                                backgroundColor: "white",
-                                "& .MuiSelect-select": {
-                                    padding: "8px 14px",
-                                    color: "#333",
-                                },
+                                mb: 2,
+                                fontWeight: 600,
+                                color: "#333",
+                                fontSize: "18px",
                             }}
                         >
-                            <MenuItem value="default">Default sorting</MenuItem>
-                            <MenuItem value="popularity">Sort by popularity</MenuItem>
-                            <MenuItem value="latest">Sort by latest</MenuItem>
-                            <MenuItem value="rating">Sort by average rating</MenuItem>
-                            <MenuItem value="price-high">
-                                Sort by price: high to low
-                            </MenuItem>
-                            <MenuItem value="price-low">
-                                Sort by price: low to high
-                            </MenuItem>
-                        </Select>
-                    </FormControl>
+                            Product Categories Hire
+                        </Typography>
+
+                        <Box sx={{ mb: 3 }}>
+                            <FormControl fullWidth variant="outlined">
+                                <Select
+                                    value={category}
+                                    displayEmpty
+                                    onChange={(e) => setCategory(e.target.value)}
+                                    sx={{
+                                        backgroundColor: "white",
+                                        "& .MuiSelect-select": {
+                                            padding: "12px 14px",
+                                            color: category ? "#333" : "#999",
+                                        },
+                                    }}
+                                >
+                                    <MenuItem value="" sx={{ color: "#999" }}>
+                                        Select a category
+                                    </MenuItem>
+                                    <MenuItem value="table">Table</MenuItem>
+                                    <MenuItem value="linen">Linen</MenuItem>
+                                    <MenuItem value="backdrop">Backdrop</MenuItem>
+                                    <MenuItem value="couches">Couches</MenuItem>
+                                    <MenuItem value="catering">Catering</MenuItem>
+                                    <MenuItem value="cake-stand">Cake Stand</MenuItem>
+                                </Select>
+                            </FormControl>
+                        </Box>
+                    </Box>
+
+                    <Box sx={{ flex: 1 }}>
+                        <Box
+                            sx={{
+                                display: "flex",
+                                flexDirection: { xs: "column", sm: "row" },
+                                alignItems: { xs: "stretch", sm: "center" },
+                                justifyContent: "space-between",
+                                gap: 2,
+                                mb: 3,
+                                p: 2,
+                                backgroundColor: "white",
+                                borderRadius: "4px",
+                                boxShadow: "0 1px 3px rgba(0,0,0,0.1)",
+                            }}
+                        >
+                            <Typography
+                                sx={{
+                                    color: "#666",
+                                    fontSize: "14px",
+                                }}
+                            >
+                                Showing 1–9 of 235 results
+                            </Typography>
+
+                            <Box sx={{ width: { xs: "100%", sm: "200px" } }}>
+                                <FormControl fullWidth variant="outlined">
+                                    <Select
+                                        value={sort}
+                                        onChange={(e) => setSort(e.target.value)}
+                                        sx={{
+                                            backgroundColor: "white",
+                                            "& .MuiSelect-select": {
+                                                padding: "8px 14px",
+                                                color: "#333",
+                                            },
+                                        }}
+                                    >
+                                        <MenuItem value="default">Default sorting</MenuItem>
+                                        <MenuItem value="popularity">Sort by popularity</MenuItem>
+                                        <MenuItem value="latest">Sort by latest</MenuItem>
+                                        <MenuItem value="rating">Sort by average rating</MenuItem>
+                                        <MenuItem value="price-high">
+                                            Sort by price: high to low
+                                        </MenuItem>
+                                        <MenuItem value="price-low">
+                                            Sort by price: low to high
+                                        </MenuItem>
+                                    </Select>
+                                </FormControl>
+                            </Box>
+                        </Box>
+
+                        <Box
+                            sx={{
+                                display: "grid",
+                                gridTemplateColumns: {
+                                    xs: "repeat(1, 1fr)",
+                                    sm: "repeat(2, 1fr)",
+                                    md: "repeat(3, 1fr)",
+                                    lg: "repeat(3, 1fr)",
+                                },
+                                gap: 2,
+                            }}
+                        >
+                            {products.map((product) => (
+                                <Card
+                                    key={product.id}
+                                    sx={{
+                                        height: "100%",
+                                        display: "flex",
+                                        flexDirection: "column",
+                                        transition: "transform 0.2s ease-in-out",
+                                        "&:hover": {
+                                            transform: "translateY(-4px)",
+                                            boxShadow: "0 4px 12px rgba(0,0,0,0.15)",
+                                        },
+                                    }}
+                                >
+                                    <CardMedia
+                                        component="img"
+                                        height="200"
+                                        image={product.img}
+                                        alt={product.title}
+                                        sx={{
+                                            objectFit: "cover",
+                                            width: "100%"
+                                        }}
+                                    />
+                                    <CardContent
+                                        sx={{
+                                            flexGrow: 1,
+                                            p: 2,
+                                            display: "flex",
+                                            flexDirection: "column",
+                                            justifyContent: "space-between",
+                                        }}
+                                    >
+                                        <Box>
+                                            <Typography
+                                                variant="body2"
+                                                gutterBottom
+                                                sx={{
+                                                    fontSize: "14px",
+                                                    lineHeight: 1.4,
+                                                    height: "2.8rem",
+                                                    overflow: "hidden",
+                                                    display: "-webkit-box",
+                                                    WebkitLineClamp: 2,
+                                                    WebkitBoxOrient: "vertical",
+                                                    mb: 1,
+                                                }}
+                                            >
+                                                {product.title}
+                                            </Typography>
+                                            <Typography
+                                                variant="h6"
+                                                color="primary"
+                                                sx={{
+                                                    fontSize: "16px",
+                                                    fontWeight: "bold",
+                                                    mb: 1.5,
+                                                }}
+                                            >
+                                                {product.price}
+                                            </Typography>
+                                        </Box>
+                                        <Button
+                                            variant="contained"
+                                            size="small"
+                                            fullWidth
+                                            sx={{
+                                                textTransform: "none",
+                                                backgroundColor: "#b08968",
+                                                fontSize: "14px",
+                                                py: 1,
+                                                "&:hover": {
+                                                    backgroundColor: "#9a765a",
+                                                },
+                                            }}
+                                        >
+                                            Add to cart
+                                        </Button>
+                                    </CardContent>
+                                </Card>
+                            ))}
+                        </Box>
+                    </Box>
                 </Box>
             </Box>
 
-            <Box
-                sx={{
-                    display: "grid",
-                    gridTemplateColumns: {
-                        xs: "repeat(1, 1fr)",
-                        sm: "repeat(2, 1fr)",
-                        md: "repeat(3, 1fr)",
-                        lg: "repeat(3, 1fr)",
-                    },
-                    gap: 2,
-                }}
-            >
-                {products.map((product) => (
-                    <Card
-                        key={product.id}
-                        sx={{
-                            height: "100%",
-                            display: "flex",
-                            flexDirection: "column",
-                            transition: "transform 0.2s ease-in-out",
-                            "&:hover": {
-                                transform: "translateY(-4px)",
-                                boxShadow: "0 4px 12px rgba(0,0,0,0.15)",
-                            },
-                        }}
-                    >
-                        <CardMedia
-                            component="img"
-                            height="200"
-                            image={product.img}
-                            alt={product.title}
-                            sx={{ 
-                                objectFit: "cover",
-                                width: "100%"
-                            }}
-                        />
-                        <CardContent
-                            sx={{
-                                flexGrow: 1,
-                                p: 2,
-                                display: "flex",
-                                flexDirection: "column",
-                                justifyContent: "space-between",
-                            }}
-                        >
-                            <Box>
-                                <Typography
-                                    variant="body2"
-                                    gutterBottom
-                                    sx={{
-                                        fontSize: "14px",
-                                        lineHeight: 1.4,
-                                        height: "2.8rem",
-                                        overflow: "hidden",
-                                        display: "-webkit-box",
-                                        WebkitLineClamp: 2,
-                                        WebkitBoxOrient: "vertical",
-                                        mb: 1,
-                                    }}
-                                >
-                                    {product.title}
-                                </Typography>
-                                <Typography
-                                    variant="h6"
-                                    color="primary"
-                                    sx={{
-                                        fontSize: "16px",
-                                        fontWeight: "bold",
-                                        mb: 1.5,
-                                    }}
-                                >
-                                    {product.price}
-                                </Typography>
-                            </Box>
-                            <Button
-                                variant="contained"
-                                size="small"
-                                fullWidth
-                                sx={{
-                                    textTransform: "none",
-                                    backgroundColor: "#b08968",
-                                    fontSize: "14px",
-                                    py: 1,
-                                    "&:hover": {
-                                        backgroundColor: "#9a765a",
-                                    },
-                                }}
-                            >
-                                Add to cart
-                            </Button>
-                        </CardContent>
-                    </Card>
-                ))}
-            </Box>
-        </Box>
-    </Box>
-</Box>
-            
 
             <Box sx={{ display: "flex", justifyContent: "center", mt: 4, mb: 6 }}>
                 <Box

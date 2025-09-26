@@ -1,9 +1,6 @@
 "use client";
 
 import React, { useState, type ChangeEvent, type FormEvent, type MouseEvent } from "react";
-import { AppBar, Toolbar, Typography, Box, Link, useMediaQuery, InputBase, IconButton, Menu, MenuItem, Button, Tab, Tabs } from "@mui/material";
-import { usePathname, useRouter } from "next/navigation";
-import { useTheme } from "@mui/material/styles";
 import EmailIcon from "@mui/icons-material/Email";
 import PhoneIcon from "@mui/icons-material/Phone";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
@@ -21,6 +18,9 @@ import RestaurantIcon from "@mui/icons-material/Restaurant";
 import CastleIcon from "@mui/icons-material/Castle";
 import HolidayVillageIcon from "@mui/icons-material/HolidayVillage";
 import CelebrationIcon from "@mui/icons-material/Celebration";
+import { useTheme } from "@mui/material/styles";
+import { usePathname, useRouter } from "next/navigation";
+import { AppBar, Toolbar, Typography, Box, Link, useMediaQuery, InputBase, IconButton, Menu, MenuItem, Button, Tab, Tabs } from "@mui/material";
 
 export default function Header() {
     const theme = useTheme();
@@ -206,7 +206,7 @@ export default function Header() {
                 <Box sx={{ display: "flex", alignItems: "center", gap: 2, ml: "auto" }}>
                     <Box
                         sx={{ textAlign: "right", color: "#000", display: { xs: "none", sm: "block" }, cursor: "pointer" }}
-                        onClick={() => router.push("/quote")}
+                    // onClick={() => router.push("/quote")}
                     >
                         <Typography
                             variant="body2"
