@@ -9,20 +9,29 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@apollo/client": "^4.0.6",
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.1",
+    "@hookform/resolvers": "^5.2.2",
     "@mui/icons-material": "^7.3.2",
     "@mui/material": "^7.3.2",
+    "@nestjs/apollo": "^13.1.0",
+    "@nestjs/graphql": "^13.1.0",
     "@radix-ui/react-progress": "^1.1.7",
     "@radix-ui/react-separator": "^1.1.7",
     "@tabler/icons-react": "^3.35.0",
+    "apollo-server-express": "^3.13.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "firebase": "^12.3.0",
+    "graphql": "^16.11.0",
     "lucide-react": "^0.542.0",
     "next": "15.5.0",
     "react": "19.1.0",
     "react-dom": "19.1.0",
-    "tailwind-merge": "^3.3.1"
+    "react-hook-form": "^7.63.0",
+    "tailwind-merge": "^3.3.1",
+    "yup": "^1.7.1"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",

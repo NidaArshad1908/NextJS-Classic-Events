@@ -55,11 +55,11 @@ export default function Home() {
                             </Typography>
 
                             <Box sx={{ display: "flex", gap: 2, flexWrap: "wrap", justifyContent: { xs: "center", md: "flex-start" } }}>
-                                <Button variant="contained" sx={{ bgcolor: "#B88658", px: 3, py: 1.2, "&:hover": { bgcolor: "black" }, fontFamily: "var(--font-montserrat)", fontWeight: 600 }}>
+                                <Button variant="contained" sx={{ bgcolor: "#B88658", px: 3, py: 1.2, "&:hover": { opacity: 0.9 }, fontFamily: "var(--font-montserrat)", fontWeight: 600 }}>
                                     Request A Quote
                                 </Button>
 
-                                <Button variant="contained" sx={{ bgcolor: "#222222", px: 3, py: 1.2, "&:hover": { bgcolor: "#B88658" }, fontFamily: "var(--font-montserrat)", fontWeight: 600 }}>
+                                <Button variant="contained" sx={{ bgcolor: "#222222", px: 3, py: 1.2, "&:hover": { opacity: 0.9 }, fontFamily: "var(--font-montserrat)", fontWeight: 600 }}>
                                     Make Your Own Quote
                                 </Button>
                             </Box>
