@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Quicksand, Playfair_Display, Poppins, Montserrat } from "next/font/google";
 import "./globals.css";
-import AppPage from "./page";
+import { Box } from "@mui/material";
+import Header from "@/components/header";
+import Footer from "@/components/footer";
+import ApolloProviderWrapper from "@/lib/ApolloProviderWrapper";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -44,11 +47,20 @@ export const metadata: Metadata = {
   description: "Premium wedding planning and event management services",
 };
 
-export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+// export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} ${quicksand.variable} ${playfair.variable} ${poppins.variable} ${montserrat.variable} antialiased`}>
-        <AppPage>{children}</AppPage>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} ${quicksand.variable} ${playfair.variable} ${poppins.variable} ${montserrat.variable} antialiased`}
+      >
+        <ApolloProviderWrapper>
+          <Box sx={{ bgcolor: "#fff" }}>
+            <Header />
+            <main>{children}</main>
+            <Footer />
+          </Box>
+        </ApolloProviderWrapper>
       </body>
     </html>
   );
