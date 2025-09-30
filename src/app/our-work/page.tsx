@@ -1,23 +1,70 @@
 "use client";
-import { Box, Typography, Button, Container } from "@mui/material";
+import { Box, Typography, Button, Container, Divider } from "@mui/material";
 
 const galleryImages = [
-  "https://t3.ftcdn.net/jpg/03/35/71/52/360_F_335715230_xzXaUgNPtOTtT7bZS8RwcYhP2JLIT8EH.jpg",
-  "https://t3.ftcdn.net/jpg/02/83/83/92/360_F_283839263_64Kw4OAIyVhTnUpLa4Y4g0HvSXIU9oN5.jpg",
-  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwxThEO8r6r_hJCQh62C25LEABv74soLQanQ&s",
-  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRh76RtAvzFZqJY5XVMoxwYuGzAE5VOU3Ddmg&s",
-  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTV24J-Hy5fZ3pzS2lO5uvfzaXtR3d8zq_B_g&s",
-  "https://t3.ftcdn.net/jpg/03/35/71/52/360_F_335715230_xzXaUgNPtOTtT7bZS8RwcYhP2JLIT8EH.jpg",
-  "https://t3.ftcdn.net/jpg/02/83/83/92/360_F_283839263_64Kw4OAIyVhTnUpLa4Y4g0HvSXIU9oN5.jpg",
-  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwxThEO8r6r_hJCQh62C25LEABv74soLQanQ&s",
-  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRh76RtAvzFZqJY5XVMoxwYuGzAE5VOU3Ddmg&s",
-  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTV24J-Hy5fZ3pzS2lO5uvfzaXtR3d8zq_B_g&s",
+  "https://lillybeesevents.co.za/wp-content/uploads/2023/09/IMG-20230826-WA0058.jpg",
+  "https://lillybeesevents.co.za/wp-content/uploads/2023/09/IMG-20230826-WA0054.jpg",
+  "https://lillybeesevents.co.za/wp-content/uploads/2023/09/IMG-20230826-WA0055.jpg",
+  "https://lillybeesevents.co.za/wp-content/uploads/2023/09/IMG-20230826-WA0056.jpg",
+  "https://lillybeesevents.co.za/wp-content/uploads/2023/09/IMG-20230826-WA0057.jpg",
+  "https://lillybeesevents.co.za/wp-content/uploads/2023/09/IMG-20230826-WA0059.jpg",
+  "https://lillybeesevents.co.za/wp-content/uploads/2023/09/IMG-20230826-WA0060.jpg",
+];
+
+const galleryImages2 = [
+  "https://lillybeesevents.co.za/wp-content/uploads/2023/09/IMG-20230826-WA0053.jpg",
+  "https://lillybeesevents.co.za/wp-content/uploads/2023/09/IMG-20230826-WA0039.jpg",
+  "https://lillybeesevents.co.za/wp-content/uploads/2023/09/IMG-20230826-WA0041.jpg",
+  "https://lillybeesevents.co.za/wp-content/uploads/2023/09/IMG-20230826-WA0042.jpg",
+  "https://lillybeesevents.co.za/wp-content/uploads/2023/09/IMG-20230826-WA0043.jpg",
+  "https://lillybeesevents.co.za/wp-content/uploads/2023/09/IMG-20230826-WA0044.jpg",
+  "https://lillybeesevents.co.za/wp-content/uploads/2023/09/IMG-20230826-WA0045.jpg",
+  "https://lillybeesevents.co.za/wp-content/uploads/2023/09/IMG-20230826-WA0046.jpg",
+  "https://lillybeesevents.co.za/wp-content/uploads/2023/09/IMG-20230826-WA0047.jpg",
+  "https://lillybeesevents.co.za/wp-content/uploads/2023/09/IMG-20230826-WA0048.jpg",
+  "https://lillybeesevents.co.za/wp-content/uploads/2023/09/IMG-20230826-WA0052.jpg",
+  "https://lillybeesevents.co.za/wp-content/uploads/2023/09/IMG-20230826-WA0050.jpg",
+];
+
+const galleryImages3 = [
+  "https://lillybeesevents.co.za/wp-content/uploads/2023/09/IMG-20230826-WA0020.jpg",
+  "https://lillybeesevents.co.za/wp-content/uploads/2023/09/IMG-20230826-WA0021.jpg",
+  "https://lillybeesevents.co.za/wp-content/uploads/2023/09/IMG-20230826-WA0022.jpg",
+  "https://lillybeesevents.co.za/wp-content/uploads/2023/09/IMG-20230826-WA0025.jpg",
+  "https://lillybeesevents.co.za/wp-content/uploads/2023/09/IMG-20230826-WA0038.jpg",
+  "https://lillybeesevents.co.za/wp-content/uploads/2023/09/IMG-20230826-WA0015.jpg",
+  "https://lillybeesevents.co.za/wp-content/uploads/2023/09/IMG-20230826-WA0019.jpg",
+  "https://lillybeesevents.co.za/wp-content/uploads/2023/09/IMG-20230826-WA0006.jpg",
+];
+
+const galleryImages4 = [
+  "https://lillybeesevents.co.za/wp-content/uploads/2023/09/IMG-20230826-WA0115.jpg",
+  "https://lillybeesevents.co.za/wp-content/uploads/2023/09/IMG-20230826-WA0116.jpg",
+  "https://lillybeesevents.co.za/wp-content/uploads/2023/09/IMG-20230826-WA0118.jpg",
+  "https://lillybeesevents.co.za/wp-content/uploads/2023/09/IMG-20230826-WA0119.jpg",
+  "https://lillybeesevents.co.za/wp-content/uploads/2023/09/IMG-20230826-WA0120.jpg",
+  "https://lillybeesevents.co.za/wp-content/uploads/2023/09/IMG-20230826-WA0121.jpg",
+  "https://lillybeesevents.co.za/wp-content/uploads/2023/09/IMG-20230826-WA0122.jpg",
+  "https://lillybeesevents.co.za/wp-content/uploads/2023/09/IMG-20230826-WA0123.jpg",
+  "https://lillybeesevents.co.za/wp-content/uploads/2023/09/IMG-20230826-WA0124.jpg",
+  "https://lillybeesevents.co.za/wp-content/uploads/2023/09/IMG-20230826-WA0125.jpg",
+  "https://lillybeesevents.co.za/wp-content/uploads/2023/09/IMG-20230826-WA0126.jpg",
+  "https://lillybeesevents.co.za/wp-content/uploads/2023/09/IMG-20230826-WA0128.jpg",
+];
+
+const galleryImages5 = [
+  "https://lillybeesevents.co.za/wp-content/uploads/2023/09/IMG-20230826-WA0102.jpg",
+  "https://lillybeesevents.co.za/wp-content/uploads/2023/09/IMG-20230826-WA0103.jpg",
+  "https://lillybeesevents.co.za/wp-content/uploads/2023/09/IMG-20230826-WA0104.jpg",
+  "https://lillybeesevents.co.za/wp-content/uploads/2023/09/IMG-20230826-WA0105.jpg",
+  "https://lillybeesevents.co.za/wp-content/uploads/2023/09/IMG-20230826-WA0106.jpg",
+  "https://lillybeesevents.co.za/wp-content/uploads/2023/09/IMG-20230826-WA0095.jpg", ,
 ];
 
 export default function OurWorkHero() {
   return (
     <Box>
-      {/* Hero Section */}
+
       <Box
         sx={{
           position: "relative",
@@ -70,7 +117,6 @@ export default function OurWorkHero() {
         </Box>
       </Box>
 
-      {/* Gallery Section */}
       <Box sx={{ width: "100%" }}>
         <Container maxWidth="xl" sx={{ py: 8, px: { xs: 2, md: 4 } }}>
           <Box
@@ -113,6 +159,7 @@ export default function OurWorkHero() {
                     "&:hover": { transform: "scale(1.05)" },
                   }}
                 />
+
                 <Box
                   sx={{
                     position: "absolute",
@@ -128,11 +175,271 @@ export default function OurWorkHero() {
                   }}
                 />
               </Box>
-
             ))}
           </Box>
         </Container>
       </Box>
+
+      <Divider sx={{ borderColor: "#B88568", my: 1, width: "50%", mx: "auto", borderBottomWidth: 2 }} />
+
+      <Box sx={{ width: "100%" }}>
+        <Container maxWidth="xl" sx={{ py: 8, px: { xs: 2, md: 4 } }}>
+          <Box
+            sx={{
+              display: "grid",
+              gridTemplateColumns: {
+                xs: "1fr",
+                sm: "repeat(2, 1fr)",
+                md: "repeat(3, 1fr)",
+                lg: "repeat(5, 1fr)",
+              },
+              gap: 3,
+              mt: 4,
+            }}
+          >
+            {galleryImages2.map((image, index) => (
+              <Box
+                key={index}
+                sx={{
+                  position: "relative",
+                  borderRadius: 3,
+                  overflow: "hidden",
+                  boxShadow: "0 4px 15px rgba(0,0,0,0.1)",
+                  transition: "all 0.3s ease",
+                  "&:hover": {
+                    transform: "translateY(-8px) scale(1.02)",
+                    boxShadow: "0 12px 30px rgba(0,0,0,0.2)",
+                  },
+                }}
+              >
+                <Box
+                  component="img"
+                  src={image}
+                  alt={`Classic Events Gallery ${index + 1}`}
+                  sx={{
+                    width: "100%",
+                    height: "280px",
+                    objectFit: "cover",
+                    transition: "transform 0.3s ease",
+                    "&:hover": { transform: "scale(1.05)" },
+                  }}
+                />
+
+                <Box
+                  sx={{
+                    position: "absolute",
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    bottom: 0,
+                    background:
+                      "linear-gradient(to bottom, transparent, rgba(0,0,0,0.3))",
+                    opacity: 0,
+                    transition: "opacity 0.3s ease",
+                    "&:hover": { opacity: 1 },
+                  }}
+                />
+              </Box>
+            ))}
+          </Box>
+        </Container>
+      </Box>
+
+      <Divider sx={{ borderColor: "#B88568", my: 1, width: "50%", mx: "auto", borderBottomWidth: 2 }} />
+
+      <Box sx={{ width: "100%" }}>
+        <Container maxWidth="xl" sx={{ py: 8, px: { xs: 2, md: 4 } }}>
+          <Box
+            sx={{
+              display: "grid",
+              gridTemplateColumns: {
+                xs: "1fr",
+                sm: "repeat(2, 1fr)",
+                md: "repeat(3, 1fr)",
+                lg: "repeat(5, 1fr)",
+              },
+              gap: 3,
+              mt: 4,
+            }}
+          >
+            {galleryImages3.map((image, index) => (
+              <Box
+                key={index}
+                sx={{
+                  position: "relative",
+                  borderRadius: 3,
+                  overflow: "hidden",
+                  boxShadow: "0 4px 15px rgba(0,0,0,0.1)",
+                  transition: "all 0.3s ease",
+                  "&:hover": {
+                    transform: "translateY(-8px) scale(1.02)",
+                    boxShadow: "0 12px 30px rgba(0,0,0,0.2)",
+                  },
+                }}
+              >
+                <Box
+                  component="img"
+                  src={image}
+                  alt={`Classic Events Gallery ${index + 1}`}
+                  sx={{
+                    width: "100%",
+                    height: "280px",
+                    objectFit: "cover",
+                    transition: "transform 0.3s ease",
+                    "&:hover": { transform: "scale(1.05)" },
+                  }}
+                />
+
+                <Box
+                  sx={{
+                    position: "absolute",
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    bottom: 0,
+                    background:
+                      "linear-gradient(to bottom, transparent, rgba(0,0,0,0.3))",
+                    opacity: 0,
+                    transition: "opacity 0.3s ease",
+                    "&:hover": { opacity: 1 },
+                  }}
+                />
+              </Box>
+            ))}
+          </Box>
+        </Container>
+      </Box>
+
+      <Divider sx={{ borderColor: "#B88568", my: 1, width: "50%", mx: "auto", borderBottomWidth: 2 }} />
+
+      <Box sx={{ width: "100%" }}>
+        <Container maxWidth="xl" sx={{ py: 8, px: { xs: 2, md: 4 } }}>
+          <Box
+            sx={{
+              display: "grid",
+              gridTemplateColumns: {
+                xs: "1fr",
+                sm: "repeat(2, 1fr)",
+                md: "repeat(3, 1fr)",
+                lg: "repeat(5, 1fr)",
+              },
+              gap: 3,
+              mt: 4,
+            }}
+          >
+            {galleryImages4.map((image, index) => (
+              <Box
+                key={index}
+                sx={{
+                  position: "relative",
+                  borderRadius: 3,
+                  overflow: "hidden",
+                  boxShadow: "0 4px 15px rgba(0,0,0,0.1)",
+                  transition: "all 0.3s ease",
+                  "&:hover": {
+                    transform: "translateY(-8px) scale(1.02)",
+                    boxShadow: "0 12px 30px rgba(0,0,0,0.2)",
+                  },
+                }}
+              >
+                <Box
+                  component="img"
+                  src={image}
+                  alt={`Classic Events Gallery ${index + 1}`}
+                  sx={{
+                    width: "100%",
+                    height: "280px",
+                    objectFit: "cover",
+                    transition: "transform 0.3s ease",
+                    "&:hover": { transform: "scale(1.05)" },
+                  }}
+                />
+
+                <Box
+                  sx={{
+                    position: "absolute",
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    bottom: 0,
+                    background:
+                      "linear-gradient(to bottom, transparent, rgba(0,0,0,0.3))",
+                    opacity: 0,
+                    transition: "opacity 0.3s ease",
+                    "&:hover": { opacity: 1 },
+                  }}
+                />
+              </Box>
+            ))}
+          </Box>
+        </Container>
+      </Box>
+
+      <Divider sx={{ borderColor: "#B88568", my: 1, width: "50%", mx: "auto", borderBottomWidth: 2 }} />
+
+      <Box sx={{ width: "100%" }}>
+        <Container maxWidth="xl" sx={{ py: 8, px: { xs: 2, md: 4 } }}>
+          <Box
+            sx={{
+              display: "grid",
+              gridTemplateColumns: {
+                xs: "1fr",
+                sm: "repeat(2, 1fr)",
+                md: "repeat(3, 1fr)",
+                lg: "repeat(5, 1fr)",
+              },
+              gap: 3,
+              mt: 4,
+            }}
+          >
+            {galleryImages5.map((image, index) => (
+              <Box
+                key={index}
+                sx={{
+                  position: "relative",
+                  borderRadius: 3,
+                  overflow: "hidden",
+                  boxShadow: "0 4px 15px rgba(0,0,0,0.1)",
+                  transition: "all 0.3s ease",
+                  "&:hover": {
+                    transform: "translateY(-8px) scale(1.02)",
+                    boxShadow: "0 12px 30px rgba(0,0,0,0.2)",
+                  },
+                }}
+              >
+                <Box
+                  component="img"
+                  src={image}
+                  alt={`Classic Events Gallery ${index + 1}`}
+                  sx={{
+                    width: "100%",
+                    height: "280px",
+                    objectFit: "cover",
+                    transition: "transform 0.3s ease",
+                    "&:hover": { transform: "scale(1.05)" },
+                  }}
+                />
+
+                <Box
+                  sx={{
+                    position: "absolute",
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    bottom: 0,
+                    background:
+                      "linear-gradient(to bottom, transparent, rgba(0,0,0,0.3))",
+                    opacity: 0,
+                    transition: "opacity 0.3s ease",
+                    "&:hover": { opacity: 1 },
+                  }}
+                />
+              </Box>
+            ))}
+          </Box>
+        </Container>
+      </Box>
+
     </Box>
   );
 }

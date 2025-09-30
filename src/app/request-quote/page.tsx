@@ -1,9 +1,8 @@
 /* eslint-disable react/no-unescaped-entities */
 "use client";
-import { Box, Typography, Container, TextField, Button, Stepper, Step, StepLabel, Grid, IconButton } from "@mui/material";
+import { Box, Typography, Container, TextField, Button, Stepper, Step, StepLabel, Grid } from "@mui/material";
 import * as React from "react";
-import { ChevronLeft, ChevronRight } from "@mui/icons-material";
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 export default function RequestQuote() {
     const backgroundImage = "https://media.istockphoto.com/id/1558296656/photo/festive-decor-with-flower-composition-candles-on-black-tablecloth-banquet-decoration-in-hall.jpg?s=612x612&w=0&k=20&c=Vm9Uy5k3UF4EAucXBUeeNWdbVXcpiHD5__0S1IiWxMM=";
@@ -15,7 +14,10 @@ export default function RequestQuote() {
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRh76RtAvzFZqJY5XVMoxwYuGzAE5VOU3Ddmg&s",
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTV24J-Hy5fZ3pzS2lO5uvfzaXtR3d8zq_B_g&s",
         "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=400",
-        "https://images.unsplash.com/photo-1519677100203-70f2d7d4c1f8?w=400"
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgyoiTSHq9Wqmz8IWYU15Pjvped4srdaCBgQ&s",
+        "https://i.pinimg.com/736x/cc/85/e0/cc85e08196ba159f2fe35dcb6803ffba.jpg",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjW9mspzra7zv-fB7EoOkqxvnTcCdl7MFuEQ&s",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQiDUYxEvN7b3GazHxmBA1WOBNje6snPTjQw&s",
     ];
 
     const eventTypes = [
@@ -34,7 +36,6 @@ export default function RequestQuote() {
     ];
 
     const [activeStep, setActiveStep] = useState(0);
-    const [currentImageIndex, setCurrentImageIndex] = useState(0);
     const [formData, setFormData] = useState({
         eventType: "",
         eventDate: "",
@@ -48,28 +49,6 @@ export default function RequestQuote() {
     });
 
     const steps = ['Event Information', 'Personal Information'];
-
-    useEffect(() => {
-        const interval = setInterval(() => {
-            setCurrentImageIndex((prevIndex) =>
-                prevIndex === galleryImages.length - 1 ? 0 : prevIndex + 1
-            );
-        }, 5000);
-
-        return () => clearInterval(interval);
-    }, [galleryImages.length]);
-
-    const handleNextImage = () => {
-        setCurrentImageIndex((prevIndex) =>
-            prevIndex === galleryImages.length - 1 ? 0 : prevIndex + 1
-        );
-    };
-
-    const handlePrevImage = () => {
-        setCurrentImageIndex((prevIndex) =>
-            prevIndex === 0 ? galleryImages.length - 1 : prevIndex - 1
-        );
-    };
 
     const handleNext = () => { setActiveStep((prevStep) => prevStep + 1) };
 
@@ -88,6 +67,16 @@ export default function RequestQuote() {
     };
 
     const commentLength = formData.comments.length;
+
+    const [currentIndex, setCurrentIndex] = React.useState(0);
+
+    React.useEffect(() => {
+        const interval = setInterval(() => {
+            setCurrentIndex((prev) => (prev + 1) % galleryImages.length);
+        }, 5000); // 5 seconds pause
+        return () => clearInterval(interval);
+    }, []);
+
 
     return (
         <Box sx={{ width: "100%" }}>
@@ -127,156 +116,33 @@ export default function RequestQuote() {
                 </Typography>
             </Box>
 
-            <Container maxWidth="md" sx={{ py: 8, px: { xs: 2, md: 4 } }}>
-                <Box sx={{ py: 8 }}>
-                    <Typography variant="h4" sx={{
-                        textAlign: "center",
-                        mb: 4,
-                        fontFamily: "var(--font-playfair)",
-                        color: "#333"
-                    }}>
-                        Our Event Gallery
-                    </Typography>
-
-                    <Box sx={{
-                        position: "relative",
-                        width: "100%",
-                        height: "400px",
-                        overflow: "hidden",
-                        borderRadius: 3,
-                        boxShadow: "0 8px 30px rgba(0,0,0,0.2)"
-                    }}>
-                        <Box
-                            component="img"
-                            src={galleryImages[currentImageIndex]}
-                            alt={`Gallery image ${currentImageIndex + 1}`}
-                            sx={{
-                                width: "100%",
-                                height: "100%",
-                                objectFit: "cover",
-                                transition: "transform 0.5s ease",
-                                "&:hover": {
-                                    transform: "scale(1.02)"
-                                }
-                            }}
-                        />
-
-                        <IconButton
-                            onClick={handlePrevImage}
-                            sx={{
-                                position: "absolute",
-                                left: 16,
-                                top: "50%",
-                                transform: "translateY(-50%)",
-                                bgcolor: "rgba(255,255,255,0.8)",
-                                color: "#D7B783",
-                                "&:hover": {
-                                    bgcolor: "white"
-                                }
-                            }}
-                        >
-                            <ChevronLeft />
-                        </IconButton>
-
-                        <IconButton
-                            onClick={handleNextImage}
-                            sx={{
-                                position: "absolute",
-                                right: 16,
-                                top: "50%",
-                                transform: "translateY(-50%)",
-                                bgcolor: "rgba(255,255,255,0.8)",
-                                color: "#D7B783",
-                                "&:hover": {
-                                    bgcolor: "white"
-                                }
-                            }}
-                        >
-                            <ChevronRight />
-                        </IconButton>
-
-                        <Box sx={{
-                            position: "absolute",
-                            bottom: 16,
-                            left: "50%",
-                            transform: "translateX(-50%)",
-                            display: "flex",
-                            gap: 1
-                        }}>
-                            {galleryImages.map((_, index) => (
-                                <Box
-                                    key={index}
-                                    onClick={() => setCurrentImageIndex(index)}
-                                    sx={{
-                                        width: 12,
-                                        height: 12,
-                                        borderRadius: "50%",
-                                        bgcolor: index === currentImageIndex ? "#D7B783" : "rgba(255,255,255,0.5)",
-                                        cursor: "pointer",
-                                        transition: "all 0.3s ease",
-                                        "&:hover": {
-                                            bgcolor: index === currentImageIndex ? "#D7B783" : "rgba(255,255,255,0.8)"
-                                        }
-                                    }}
-                                />
-                            ))}
-                        </Box>
-
-                        <Typography variant="body2" sx={{
-                            position: "absolute",
-                            top: 16,
-                            right: 16,
-                            bgcolor: "rgba(0,0,0,0.6)",
-                            color: "white",
-                            px: 2,
-                            py: 1,
-                            borderRadius: 2,
-                            fontFamily: "var(--font-poppins)"
-                        }}>
-                            {currentImageIndex + 1} / {galleryImages.length}
-                        </Typography>
-                    </Box>
-
-                    <Box sx={{
+            <Container sx={{ overflow: "hidden", maxWidth: "xl", py: 8 }}>
+                <Box
+                    sx={{
                         display: "flex",
-                        gap: 2,
-                        mt: 3,
-                        overflowX: "auto",
-                        py: 2,
-                        px: 1
-                    }}>
-                        {galleryImages.map((image, index) => (
+                        transition: "transform 0.5s ease",
+                        transform: `translateX(-${currentIndex * 300}px)`,
+                    }}
+                >
+                    {galleryImages.map((image, index) => (
+                        <Box
+                            key={index}
+                            sx={{
+                                minWidth: 300,
+                                height: 280,
+                                borderRadius: 3,
+                                overflow: "hidden",
+                                mr: 2,
+                            }}
+                        >
                             <Box
-                                key={index}
-                                onClick={() => setCurrentImageIndex(index)}
-                                sx={{
-                                    width: "100px",
-                                    height: "80px",
-                                    borderRadius: 2,
-                                    overflow: "hidden",
-                                    cursor: "pointer",
-                                    opacity: index === currentImageIndex ? 1 : 0.6,
-                                    transition: "all 0.3s ease",
-                                    border: index === currentImageIndex ? "3px solid #D7B783" : "3px solid transparent",
-                                    "&:hover": {
-                                        opacity: 1,
-                                        transform: "scale(1.05)"
-                                    }
-                                }}
-                            >
-                                <Box
-                                    component="img"
-                                    src={image}
-                                    alt={`Thumbnail ${index + 1}`}
-                                    sx={{
-                                        width: "100%",
-                                        height: "100%",
-                                        objectFit: "cover"
-                                    }}
-                                />
-                            </Box>
-                        ))}
-                    </Box>
+                                component="img"
+                                src={image}
+                                alt={`Gallery ${index + 1}`}
+                                sx={{ width: "100%", height: "100%", objectFit: "cover" }}
+                            />
+                        </Box>
+                    ))}
                 </Box>
             </Container>
 
