@@ -13,6 +13,11 @@ export default function AboutUs() {
         "https://images.pexels.com/photos/1616113/pexels-photo-1616113.jpeg",
         "https://jugyah-dev-property-photos.s3.ap-south-1.amazonaws.com/simple_wedding_stage_deocration_08_ebbbc72c56.webp",
         "https://forbetterforworse.co.uk/wp-content/uploads/2022/07/1.-Romantic-Sign.png",
+        "https://www.maharaniweddings.com/wp-content/uploads/2013/01/pakistani-wedding-ideas-for-table-setting-decor.jpg",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyDEh9XLHDgiD5bdzrEgW6wUm-wtNcTxXhww&s",
+        "https://www.shutterstock.com/image-photo/decoration-flowers-indian-pakistani-wedding-600nw-1444020056.jpg",
+        "https://www.v3events.in/blog/wp-content/uploads/2020/10/food.jpg",
+        "https://www.incrediblydelicious.com/uploads/8/4/1/7/84176860/1f04e373-4573-4904-acc0-aba526264588_orig.jpg"
     ];
 
     const aboutImage1 = "https://i.pinimg.com/564x/01/a0/16/01a016f19683036e1d94ee0bb25917b9.jpg";
@@ -25,23 +30,99 @@ export default function AboutUs() {
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1nD-Oy_D7t4ZFiKryJBi3YdNROX18noORJw&s",
     ];
 
+    const [currentIndex, setCurrentIndex] = React.useState(0);
+
+    React.useEffect(() => {
+        const interval = setInterval(() => {
+            setCurrentIndex((prev) => (prev + 1) % galleryImages.length);
+        }, 5000); // 5 seconds pause
+        return () => clearInterval(interval);
+    }, []);
+
 
     return (
         <>
             <Box sx={{ width: "100%", }}>
-                <Box sx={{ minHeight: "60vh", backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${backgroundImage})`, backgroundSize: "cover", backgroundPosition: "center", backgroundRepeat: "no-repeat", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", textAlign: "center", color: "white", px: 3, }}>
-                    <Typography sx={{ fontFamily: "var(--font-playfair)", fontStyle: "italic", fontSize: { xs: "1.2rem", md: "1.5rem" }, color: "#D7B78E", mb: 2, opacity: 0.9, }}>About Us</Typography>
-                    <Typography variant="h2" sx={{ fontFamily: "var(--font-playfair)", fontWeight: 600, fontSize: { xs: "2.5rem", md: "3.5rem", lg: "4rem" }, lineHeight: 1.2, mb: 3, maxWidth: "800px", }}>Who We Are</Typography>
-                    <Typography sx={{ fontFamily: "var(--font-poppins)", fontSize: { xs: "1.1rem", md: "1.3rem" }, maxWidth: "600px", lineHeight: 1.6, opacity: 0.9, color: "#D7B783" }}>Not only do we offer the best service, we also work with your budget.</Typography>
+                <Box
+                    sx={{
+                        minHeight: "60vh",
+                        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+                        url(${backgroundImage})`,
+                        backgroundSize: "cover",
+                        backgroundPosition: "center",
+                        backgroundRepeat: "no-repeat",
+                        display: "flex",
+                        flexDirection: "column",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        textAlign: "center",
+                        color: "white",
+                        px: 3,
+                    }}
+                >
+                    <Typography
+                        sx={{
+                            fontFamily: "var(--font-playfair)",
+                            fontStyle: "italic",
+                            fontSize: { xs: "1.2rem", md: "1.5rem" },
+                            color: "#D7B78E",
+                            mb: 2,
+                            opacity: 0.9,
+                        }}>
+                        About Us
+                    </Typography>
+                    <Typography
+                        variant="h2"
+                        sx={{
+                            fontFamily: "var(--font-playfair)",
+                            fontWeight: 600,
+                            fontSize: { xs: "2.5rem", md: "3.5rem", lg: "4rem" },
+                            lineHeight: 1.2,
+                            mb: 3,
+                            maxWidth: "800px",
+                        }}
+                    >
+                        Who We Are
+                    </Typography>
+                    <Typography
+                        sx={{
+                            fontFamily: "var(--font-poppins)",
+                            fontSize: { xs: "1.1rem", md: "1.3rem" },
+                            maxWidth: "600px",
+                            lineHeight: 1.6,
+                            opacity: 0.9,
+                            color: "#D7B783"
+                        }}
+                    >
+                        Not only do we offer the best service, we also work with your budget.
+                    </Typography>
                 </Box>
 
-                <Container maxWidth="xl" sx={{ py: 8, px: { xs: 2, md: 4 } }}>
-                    <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", sm: "repeat(2, 1fr)", md: "repeat(3, 1fr)", lg: "repeat(5, 1fr)", }, gap: 3, mt: 4, }}>
+                <Container sx={{ overflow: "hidden", maxWidth: "xl", py: 8 }}>
+                    <Box
+                        sx={{
+                            display: "flex",
+                            transition: "transform 0.5s ease",
+                            transform: `translateX(-${currentIndex * 300}px)`,
+                        }}
+                    >
                         {galleryImages.map((image, index) => (
-                            <Box key={index} sx={{ position: "relative", borderRadius: 3, overflow: "hidden", boxShadow: "0 4px 15px rgba(0,0,0,0.1)", transition: "all 0.3s ease", "&:hover": { transform: "translateY(-8px) scale(1.02)", boxShadow: "0 12px 30px rgba(0,0,0,0.2)", }, }}>
-                                <Box component="img" src={image} alt={`Classic Events Gallery ${index + 1}`} sx={{ width: "100%", height: "280px", objectFit: "cover", transition: "transform 0.3s ease", "&:hover": { transform: "scale(1.05)" }, }} />
-
-                                <Box sx={{ position: "absolute", top: 0, left: 0, right: 0, bottom: 0, background: "linear-gradient(to bottom, transparent, rgba(0,0,0,0.3))", opacity: 0, transition: "opacity 0.3s ease", "&:hover": { opacity: 1 }, }} />
+                            <Box
+                                key={index}
+                                sx={{
+                                    minWidth: 300,
+                                    height: 280,
+                                    borderRadius: 3,
+                                    overflow: "hidden",
+                                    mr: 2,
+                                }}
+                            >
+                                <Box
+                                    component="img"
+                                    src={image}
+                                    alt={`Gallery ${index + 1}`}
+                                    sx={{ width: "100%", height: "100%", objectFit: "cover" }}
+                                />
                             </Box>
                         ))}
                     </Box>
