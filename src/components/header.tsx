@@ -36,7 +36,6 @@ export default function Header() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const categoriesOpen = Boolean(categoriesAnchor);
     const quoteOpen = Boolean(quoteAnchor);
-
     const [quoteItems, setQuoteItems] = useState([
         { id: 1, name: "Chiavari Chair - Gold", quantity: 50, price: 25 },
         { id: 2, name: "Round Table - 6ft", quantity: 10, price: 150 },
@@ -255,7 +254,6 @@ export default function Header() {
                             </Typography>
                         </Box>
                     </Box>
-
                     <Popover
                         id="quote-popover"
                         open={quoteOpen}

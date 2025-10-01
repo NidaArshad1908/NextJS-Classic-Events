@@ -1,9 +1,49 @@
 "use client";
 import { Box, Typography, Card, CardContent, TextField, Button, } from "@mui/material";
 import * as React from "react";
+import { useState } from "react";
 
-export default function AboutUs() {
+export default function ContactUs() {
     const backgroundImage = "https://media.istockphoto.com/id/493839116/photo/tables-with-centerpieces-at-wedding-reception.jpg?s=612x612&w=0&k=20&c=g-tb7QZoq3nGXBKEsjNf-hPUUt-U_rhDny0VnHWd3xk=";
+
+    const [formData, setFormData] = useState({
+        firstName: "",
+        lastName: "",
+        email: "",
+        phone: "",
+        comments: ""
+    });
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+        setFormData({
+            ...formData,
+            [e.target.name]: e.target.value
+        });
+    };
+
+    const handleSubmit = (e: React.FormEvent) => {
+        e.preventDefault();
+        console.log("Form submitted:", formData);
+        // Add your form submission logic here
+    };
+
+    const contactCards = [
+        {
+            id: 1,
+            title: "Email Us",
+            info: ["bookings@classicevents.co.za", "lilian@classicevents.co.za"],
+        },
+        {
+            id: 2,
+            title: "Call Us",
+            info: ["Nasim Khan", " +27 83 533 2503"],
+        },
+        {
+            id: 3,
+            title: "Visit Us",
+            info: ["61 Hillcrest Avenue,", "Blairgowrie, Randburg", "", "20 3rd lane, South", "Fontainbleau, Randburg"],
+        }
+    ];
 
     return (
         <Box sx={{ width: "100%", position: "relative" }}>

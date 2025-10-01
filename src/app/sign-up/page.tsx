@@ -6,7 +6,7 @@ import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { Visibility, VisibilityOff, Person, Email, Lock } from "@mui/icons-material";
 import { Container, TextField, Button, Typography, Box, Divider, IconButton, InputAdornment, } from "@mui/material";
 
-export default function Account() {
+export default function SignUpPage() {
     const [showPassword, setShowPassword] = useState(false);
     const [formData, setFormData] = useState({
         username: "",

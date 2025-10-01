@@ -110,6 +110,7 @@ export default function EquipmentForHire() {
                     alt="Our Equipment"
                     style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
                 />
+
                 <Box
                     sx={{
                         position: "absolute",
@@ -140,7 +141,7 @@ export default function EquipmentForHire() {
                     >
                         Our Equipment
                     </Typography>
-
+                </Box>
                     <Box
                         sx={{
                             position: "absolute",
