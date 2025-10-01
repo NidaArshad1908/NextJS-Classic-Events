@@ -36,6 +36,8 @@ export default function Header() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const categoriesOpen = Boolean(categoriesAnchor);
     const quoteOpen = Boolean(quoteAnchor);
+
+    // Sample quote items - replace with your actual state management
     const [quoteItems, setQuoteItems] = useState([
         { id: 1, name: "Chiavari Chair - Gold", quantity: 50, price: 25 },
         { id: 2, name: "Round Table - 6ft", quantity: 10, price: 150 },
@@ -65,6 +67,7 @@ export default function Header() {
     };
 
     const handleQuoteMouseLeave = () => {
+        // Add a small delay to allow moving to the popover
         setTimeout(() => {
             const popover = document.getElementById('quote-popover');
             if (popover && !popover.matches(':hover')) {
@@ -165,7 +168,22 @@ export default function Header() {
                                         "&:hover": { color: "#b08968" },
                                     }}
                                 >
-                                    +27 83 533 2503
+                                    +27 11 791 9168
+                                </Link>
+                            </Box>
+                            <Box sx={{ display: "flex", alignItems: "center", gap: 0.5 }}>
+                                <PhoneIcon sx={{ fontSize: 16, color: "#b08968" }} />
+                                <Link
+                                    href="tel:+27827428239"
+                                    underline="none"
+                                    sx={{
+                                        color: "white",
+                                        fontSize: "0.875rem",
+                                        fontFamily: "var(--font-poppins)",
+                                        "&:hover": { color: "#b08968" },
+                                    }}
+                                >
+                                    +27 82 742 8239
                                 </Link>
                             </Box>
                         </Box>
@@ -254,6 +272,8 @@ export default function Header() {
                             </Typography>
                         </Box>
                     </Box>
+
+                    {/* Quote Popover Modal */}
                     <Popover
                         id="quote-popover"
                         open={quoteOpen}
