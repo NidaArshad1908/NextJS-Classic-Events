@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
 
-import { Box, Container, FormControl, Select, Typography, Card, CardMedia, CardContent, MenuItem, Button } from "@mui/material";
+import { Box, Container, FormControl, Select, Typography, Card, CardMedia, CardContent, MenuItem, Button, Divider } from "@mui/material";
 import React, { useState } from "react";
 import ChairAltIcon from '@mui/icons-material/ChairAlt';
 import TableBarIcon from '@mui/icons-material/TableBar';
@@ -98,7 +98,7 @@ export default function EquipmentForHire() {
                 sx={{
                     position: "relative",
                     width: "100vw",
-                    height: { xs: "300px", md: "500px" },
+                    height: { xs: "200px", md: "350px" },
                     margin: 0,
                     padding: 0,
                     marginLeft: "calc(-50vw + 50%)",
@@ -110,6 +110,7 @@ export default function EquipmentForHire() {
                     alt="Our Equipment"
                     style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
                 />
+
                 <Box
                     sx={{
                         position: "absolute",
@@ -134,62 +135,70 @@ export default function EquipmentForHire() {
                             textShadow: "2px 2px 4px rgba(0,0,0,0.5)",
                             fontSize: { xs: "2rem", md: "3.5rem" },
                             textAlign: "center",
-                            mb: 2,
+                            mb: 1,
                             fontFamily: "'Playfair Display', serif",
                         }}
                     >
                         Our Equipment
                     </Typography>
+                </Box>
 
-                    <Box
-                        sx={{
-                            mt: { xs: 4, md: 6 },
-                            backgroundColor: "white",
-                            border: "1px solid #b08968",
-                            borderRadius: "6px",
-                            boxShadow: "0 4px 12px rgba(0,0,0,0.15)",
-                            display: "flex",
-                            flexWrap: "wrap",
-                            justifyContent: "center",
-                            gap: 3,
-                            px: 4,
-                            py: 2,
-                            maxWidth: "900px",
-                        }}
-                    >
-                        {categories.map((cat) => (
-                            <Box
-                                key={cat.name}
-                                sx={{
-                                    display: "flex",
-                                    alignItems: "center",
-                                    gap: 1,
-                                    color: "#2C302B",
-                                    fontSize: "0.95rem",
-                                    minWidth: "120px",
-                                    justifyContent: "center",
-                                }}
-                            >
-                                <Box sx={{ fontSize: 18, display: "flex", alignItems: "center" }}>
-                                    {typeof cat.icon === "string" ? (
-                                        <Typography component="span" fontSize="18px">
-                                            {cat.icon}
-                                        </Typography>
-                                    ) : (
-                                        <cat.icon fontSize="small" />
-                                    )}
-                                </Box>
-                                <Typography variant="body2">{cat.name}</Typography>
+                <Box
+                    sx={{
+                        position: "absolute",
+                        bottom: "-30px",
+                        left: "50%",
+                        transform: "translateX(-50%)",
+                        backgroundColor: "white",
+                        border: "1px solid #b08968",
+                        borderRadius: "6px",
+                        boxShadow: "0 4px 12px rgba(0,0,0,0.15)",
+                        display: "flex",
+                        flexWrap: "wrap",
+                        justifyContent: "center",
+                        gap: 2,
+                        px: 4,
+                        py: 2,
+                        maxWidth: "900px",
+                    }}
+                >
+                    {categories.map((cat, index) => (
+                        <Box
+                            key={cat.name}
+                            sx={{
+                                display: "flex",
+                                alignItems: "center",
+                                gap: 1,
+                                color: "#2C302B",
+                                fontSize: "0.95rem",
+                                minWidth: "120px",
+                                justifyContent: "center",
+                            }}
+                        >
+                            <Box sx={{ fontSize: 18, display: "flex", alignItems: "center" }}>
+                                {typeof cat.icon === "string" ? (
+                                    <Typography component="span" fontSize="18px">
+                                        {cat.icon}
+                                    </Typography>
+                                ) : (
+                                    <cat.icon fontSize="small" />
+                                )}
                             </Box>
-                        ))}
-                    </Box>
+                            <Typography variant="body2">{cat.name}</Typography>
+
+                            {index !== categories.length - 1 && (
+                                <Divider orientation="vertical" flexItem sx={{ borderColor: "#B88568", ml: 1 }} />
+                            )}
+                        </Box>
+                    ))}
                 </Box>
             </Box>
 
 
+
             <Box
                 sx={{
-                    p: 3,
+                    p: 10,
                     backgroundColor: "#white",
                     minHeight: "100vh",
                 }}

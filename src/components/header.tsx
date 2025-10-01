@@ -18,9 +18,11 @@ import RestaurantIcon from "@mui/icons-material/Restaurant";
 import CastleIcon from "@mui/icons-material/Castle";
 import HolidayVillageIcon from "@mui/icons-material/HolidayVillage";
 import CelebrationIcon from "@mui/icons-material/Celebration";
+import CloseIcon from "@mui/icons-material/Close";
+import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import { useTheme } from "@mui/material/styles";
 import { usePathname, useRouter } from "next/navigation";
-import { AppBar, Toolbar, Typography, Box, Link, useMediaQuery, InputBase, IconButton, Menu, MenuItem, Button, Tab, Tabs } from "@mui/material";
+import { AppBar, Toolbar, Typography, Box, Link, useMediaQuery, InputBase, IconButton, Menu, MenuItem, Button, Tab, Tabs, Popover, Divider } from "@mui/material";
 
 export default function Header() {
     const theme = useTheme();
@@ -30,8 +32,16 @@ export default function Header() {
 
     const [searchQuery, setSearchQuery] = useState("");
     const [categoriesAnchor, setCategoriesAnchor] = useState<null | HTMLElement>(null);
+    const [quoteAnchor, setQuoteAnchor] = useState<null | HTMLElement>(null);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const categoriesOpen = Boolean(categoriesAnchor);
+    const quoteOpen = Boolean(quoteAnchor);
+
+    // Sample quote items - replace with your actual state management
+    const [quoteItems, setQuoteItems] = useState([
+        { id: 1, name: "Chiavari Chair - Gold", quantity: 50, price: 25 },
+        { id: 2, name: "Round Table - 6ft", quantity: 10, price: 150 },
+    ]);
 
     const navItems = [
         { text: "Home", href: "/home" },
@@ -52,6 +62,24 @@ export default function Header() {
         setCategoriesAnchor(null);
     };
 
+    const handleQuoteMouseEnter = (event: MouseEvent<HTMLDivElement>) => {
+        setQuoteAnchor(event.currentTarget);
+    };
+
+    const handleQuoteMouseLeave = () => {
+        // Add a small delay to allow moving to the popover
+        setTimeout(() => {
+            const popover = document.getElementById('quote-popover');
+            if (popover && !popover.matches(':hover')) {
+                setQuoteAnchor(null);
+            }
+        }, 100);
+    };
+
+    const handleQuoteClose = () => {
+        setQuoteAnchor(null);
+    };
+
     const handleSearchChange = (
         event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
     ) => {
@@ -66,6 +94,14 @@ export default function Header() {
 
     const toggleMobileMenu = () => {
         setMobileMenuOpen(!mobileMenuOpen);
+    };
+
+    const removeQuoteItem = (id: number) => {
+        setQuoteItems(quoteItems.filter(item => item.id !== id));
+    };
+
+    const calculateTotal = () => {
+        return quoteItems.reduce((sum, item) => sum + (item.quantity * item.price), 0);
     };
 
     const categories = [
@@ -205,8 +241,21 @@ export default function Header() {
                 </Box>
                 <Box sx={{ display: "flex", alignItems: "center", gap: 2, ml: "auto" }}>
                     <Box
-                        sx={{ textAlign: "right", color: "#000", display: { xs: "none", sm: "block" }, cursor: "pointer" }}
-                    // onClick={() => router.push("/quote")}
+                        onMouseEnter={handleQuoteMouseEnter}
+                        onMouseLeave={handleQuoteMouseLeave}
+                        sx={{
+                            textAlign: "right",
+                            color: "#000",
+                            display: { xs: "none", sm: "block" },
+                            cursor: "pointer",
+                            px: 2,
+                            py: 1,
+                            borderRadius: 1,
+                            transition: "background-color 0.2s",
+                            "&:hover": {
+                                backgroundColor: "#f5f5f5"
+                            }
+                        }}
                     >
                         <Typography
                             variant="body2"
@@ -214,15 +263,142 @@ export default function Header() {
                         >
                             ADD TO QUOTE
                         </Typography>
-                        <Box sx={{ display: "flex", alignItems: "center" }}>
+                        <Box sx={{ display: "flex", alignItems: "center", justifyContent: "flex-end" }}>
                             <Typography
                                 variant="body2"
-                                sx={{ color: "#000", mr: 1, fontFamily: "var(--font-montserrat)" }}
+                                sx={{ color: "#b08968", fontWeight: 600, fontFamily: "var(--font-montserrat)" }}
                             >
-                                R0.00
+                                R{calculateTotal().toFixed(2)}
                             </Typography>
                         </Box>
                     </Box>
+
+                    {/* Quote Popover Modal */}
+                    <Popover
+                        id="quote-popover"
+                        open={quoteOpen}
+                        anchorEl={quoteAnchor}
+                        onClose={handleQuoteClose}
+                        anchorOrigin={{
+                            vertical: 'bottom',
+                            horizontal: 'right',
+                        }}
+                        transformOrigin={{
+                            vertical: 'top',
+                            horizontal: 'right',
+                        }}
+                        disableRestoreFocus
+                        sx={{
+                            "& .MuiPopover-paper": {
+                                mt: 1,
+                                boxShadow: "0 8px 24px rgba(0,0,0,0.15)",
+                                borderRadius: 2,
+                                minWidth: "400px",
+                                maxWidth: "500px",
+                            }
+                        }}
+                        slotProps={{
+                            paper: {
+                                onMouseEnter: () => setQuoteAnchor(quoteAnchor),
+                                onMouseLeave: handleQuoteClose,
+                            }
+                        }}
+                    >
+                        <Box sx={{ p: 3 }}>
+                            <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", mb: 2 }}>
+                                <Typography variant="h6" sx={{ fontFamily: "var(--font-montserrat)", fontWeight: 600 }}>
+                                    Your Quote
+                                </Typography>
+                                <IconButton size="small" onClick={handleQuoteClose}>
+                                    <CloseIcon fontSize="small" />
+                                </IconButton>
+                            </Box>
+
+                            <Divider sx={{ mb: 2 }} />
+
+                            {quoteItems.length === 0 ? (
+                                <Box sx={{ py: 4, textAlign: "center" }}>
+                                    <Typography variant="body2" sx={{ color: "#666", fontFamily: "var(--font-poppins)" }}>
+                                        No items in quote yet
+                                    </Typography>
+                                </Box>
+                            ) : (
+                                <>
+                                    <Box sx={{ maxHeight: "300px", overflowY: "auto", mb: 2 }}>
+                                        {quoteItems.map((item) => (
+                                            <Box
+                                                key={item.id}
+                                                sx={{
+                                                    display: "flex",
+                                                    justifyContent: "space-between",
+                                                    alignItems: "center",
+                                                    py: 2,
+                                                    borderBottom: "1px solid #f0f0f0",
+                                                    "&:last-child": {
+                                                        borderBottom: "none"
+                                                    }
+                                                }}
+                                            >
+                                                <Box sx={{ flex: 1 }}>
+                                                    <Typography variant="body2" sx={{ fontFamily: "var(--font-poppins)", fontWeight: 500 }}>
+                                                        {item.name}
+                                                    </Typography>
+                                                    <Typography variant="caption" sx={{ color: "#666", fontFamily: "var(--font-poppins)" }}>
+                                                        Qty: {item.quantity} × R{item.price}
+                                                    </Typography>
+                                                </Box>
+                                                <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
+                                                    <Typography variant="body2" sx={{ fontWeight: 600, fontFamily: "var(--font-montserrat)" }}>
+                                                        R{(item.quantity * item.price).toFixed(2)}
+                                                    </Typography>
+                                                    <IconButton
+                                                        size="small"
+                                                        onClick={() => removeQuoteItem(item.id)}
+                                                        sx={{ color: "#d32f2f" }}
+                                                    >
+                                                        <DeleteOutlineIcon fontSize="small" />
+                                                    </IconButton>
+                                                </Box>
+                                            </Box>
+                                        ))}
+                                    </Box>
+
+                                    <Divider sx={{ my: 2 }} />
+
+                                    <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", mb: 3 }}>
+                                        <Typography variant="body1" sx={{ fontFamily: "var(--font-montserrat)", fontWeight: 600 }}>
+                                            Total:
+                                        </Typography>
+                                        <Typography variant="h6" sx={{ color: "#b08968", fontFamily: "var(--font-montserrat)", fontWeight: 700 }}>
+                                            R{calculateTotal().toFixed(2)}
+                                        </Typography>
+                                    </Box>
+
+                                    <Button
+                                        fullWidth
+                                        variant="contained"
+                                        onClick={() => {
+                                            router.push("/request-quote");
+                                            handleQuoteClose();
+                                        }}
+                                        sx={{
+                                            backgroundColor: "#b08968",
+                                            color: "white",
+                                            fontFamily: "var(--font-montserrat)",
+                                            textTransform: "none",
+                                            py: 1.5,
+                                            fontWeight: 600,
+                                            "&:hover": {
+                                                backgroundColor: "#9a7556"
+                                            }
+                                        }}
+                                    >
+                                        Request Quote
+                                    </Button>
+                                </>
+                            )}
+                        </Box>
+                    </Popover>
 
                     {isMobile && (
                         <IconButton sx={{ color: "#b08968" }}>
