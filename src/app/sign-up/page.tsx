@@ -21,24 +21,53 @@ export default function SignUpPage() {
         setFormData((prev) => ({ ...prev, [name]: value }));
     };
 
-    const validate = () => {
-        if (!formData.username.trim()) return "Username required";
-        if (!formData.email.includes("@")) return "Valid email required";
-        if (formData.password.length < 6) return "Password must be at least 6 chars";
-        return "";
-    };
+    // const validate = () => {
+    //     if (!formData.username.trim()) return "Username required";
+    //     if (!formData.email.includes("@")) return "Valid email required";
+    //     if (formData.password.length < 6) return "Password must be at least 6 chars";
+    //     return "";
+    // };
+
+    // const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    //     e.preventDefault();
+    //     setError("");
+    //     const validationError = validate();
+    //     if (validationError) {
+    //         setError(validationError);
+    //         return;
+    //     }
+
+    //     try {
+    //         setLoading(true);
+    //         const userCred = await createUserWithEmailAndPassword(
+    //             auth,
+    //             formData.email,
+    //             formData.password
+    //         );
+
+    //         await updateProfile(userCred.user, {
+    //             displayName: formData.username,
+    //         });
+
+    //         console.log("User registered:", userCred.user);
+    //         alert("Account created successfully!");
+    //     } catch (err: unknown) {
+    //         if (err instanceof Error) {
+    //             setError(err.message);
+    //         } else {
+    //             setError("An unexpected error occurred.");
+    //         }
+    //     } finally {
+    //         setLoading(false);
+    //     }
+    // };
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         setError("");
-        const validationError = validate();
-        if (validationError) {
-            setError(validationError);
-            return;
-        }
+        setLoading(true);
 
         try {
-            setLoading(true);
             const userCred = await createUserWithEmailAndPassword(
                 auth,
                 formData.email,
@@ -51,11 +80,13 @@ export default function SignUpPage() {
 
             console.log("User registered:", userCred.user);
             alert("Account created successfully!");
+
         } catch (err: unknown) {
+            console.error("Firebase error:", err);
             if (err instanceof Error) {
                 setError(err.message);
             } else {
-                setError("An unexpected error occurred.");
+                setError("Registration failed");
             }
         } finally {
             setLoading(false);

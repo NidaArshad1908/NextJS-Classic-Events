@@ -48,24 +48,49 @@ export default function SignInPage() {
         setShowPassword((prev) => !prev);
     };
 
+    // const onSubmit = async (data: SignInFormData) => {
+    //     setError("");
+    //     setLoading(true);
+    //     try {
+
+    //         const userCredential = await signInWithEmailAndPassword(
+    //             auth,
+    //             data.email,
+    //             data.password
+    //         );
+    //         const token = await userCredential.user.getIdToken();
+    //         console.log("Logged in:", userCredential.user);
+    //         console.log("token", token);
+    //     } catch (err) {
+    //         if (err instanceof Error) {
+    //             setError(err.message);
+    //         } else {
+    //             setError("An unknown error occurred.");
+    //         }
+    //     } finally {
+    //         setLoading(false);
+    //     }
+    // };
+
     const onSubmit = async (data: SignInFormData) => {
         setError("");
         setLoading(true);
         try {
-
             const userCredential = await signInWithEmailAndPassword(
                 auth,
                 data.email,
                 data.password
             );
             const token = await userCredential.user.getIdToken();
-            console.log("Logged in:", userCredential.user);
-            console.log("token", token);
+            console.log("Logged in successfully", token);
+
+
         } catch (err) {
+            console.error("Login error:", err);
             if (err instanceof Error) {
                 setError(err.message);
             } else {
-                setError("An unknown error occurred.");
+                setError("Login failed");
             }
         } finally {
             setLoading(false);
