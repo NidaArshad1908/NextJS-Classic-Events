@@ -2,12 +2,12 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
 } from "firebase/auth";
-import { analytics } from "./firebase";
+import { auth } from "./firebase";
 
 export const signup = async (email, password) => {
-  return await createUserWithEmailAndPassword(analytics, email, password);
+  return await createUserWithEmailAndPassword(auth, email, password);
 };
 
 export const login = async (email, password) => {
-  return await signInWithEmailAndPassword(analytics, email, password);
+  return await signInWithEmailAndPassword(auth, email, password);
 };

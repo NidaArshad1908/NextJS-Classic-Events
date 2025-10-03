@@ -192,7 +192,7 @@ export default function Header() {
                     <Box sx={{ display: "flex", alignItems: "center", gap: 1, ml: 40 }}>
                         <AccountCircleIcon sx={{ fontSize: 16, color: "#b08968" }} />
                         <Link
-                            href="/account"
+                            href="/sign-in"
                             underline="none"
                             sx={{
                                 color: "white",
