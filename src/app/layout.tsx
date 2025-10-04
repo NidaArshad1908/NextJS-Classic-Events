@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Quicksand, Playfair_Display, Poppins, Montserrat } from "next/font/google";
 import "./globals.css";
-import { Box } from "@mui/material";
+// import { Box } from "@mui/material";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 import ApolloProviderWrapper from "@/lib/ApolloProviderWrapper";
+import { Box } from "@mui/system";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
