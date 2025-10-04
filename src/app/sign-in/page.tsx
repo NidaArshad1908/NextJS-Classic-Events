@@ -27,12 +27,93 @@ const validationSchema = yup.object().shape({
 });
 
 export default function SignInPage() {
+    // const [showPassword, setShowPassword] = useState(false);
+    // const [error, setError] = useState("");
+    // const [loading, setLoading] = useState(false);
+    // const [isClient, setIsClient] = useState(false);
+
+    // useEffect(() => {
+    //     setIsClient(true);
+    // }, []);
+
+    // const {
+    //     control,
+    //     handleSubmit,
+    //     formState: { errors },
+    // } = useForm<SignInFormData>({
+    //     resolver: yupResolver(validationSchema),
+    //     defaultValues: {
+    //         email: "",
+    //         password: "",
+    //         rememberMe: false,
+    //     },
+    // });
+
+    // const togglePasswordVisibility = () => {
+    //     setShowPassword((prev) => !prev);
+    // };
+
+    // const onSubmit = async (data: SignInFormData) => {
+    //     if (typeof window === 'undefined') {
+    //         setError("Please try again in the browser");
+    //         return;
+    //     }
+
+    //     setError("");
+    //     setLoading(true);
+    //     try {
+    //         if (!auth) {
+    //             setError("Authentication service is not available.");
+    //             setLoading(false);
+    //             return;
+    //         }
+    //         const userCredential = await signInWithEmailAndPassword(
+    //             auth,
+    //             data.email,
+    //             data.password
+    //         );
+    //         const token = await userCredential.user.getIdToken();
+    //         console.log("Logged in successfully", token);
+
+    //         window.location.href = "/dashboard";
+
+    //     } catch (err: unknown) {
+    //         console.error("Login error:", err);
+
+    //         if (typeof err === "object" && err !== null && "code" in err) {
+    //             const errorCode = (err as { code?: string }).code;
+    //             if (errorCode === 'auth/invalid-credential') {
+    //                 setError("Invalid email or password");
+    //             } else if (errorCode === 'auth/user-not-found') {
+    //                 setError("No account found with this email");
+    //             } else if (errorCode === 'auth/wrong-password') {
+    //                 setError("Incorrect password");
+    //             } else if (errorCode === 'auth/too-many-requests') {
+    //                 setError("Too many failed attempts. Please try again later");
+    //             } else {
+    //                 setError((err as { message?: string }).message || "Login failed");
+    //             }
+    //         } else {
+    //             setError("Login failed");
+    //         }
+    //     } finally {
+    //         setLoading(false);
+    //     }
+    // };
+
+    // if (!isClient) {
+    //     return (
+    //         <Container component="main" maxWidth="sm" sx={{ py: 8, textAlign: 'center' }}>
+    //             <Typography>Loading...</Typography>
+    //         </Container>
+    //     );
+    // }
+
     const [showPassword, setShowPassword] = useState(false);
     const [error, setError] = useState("");
     const [loading, setLoading] = useState(false);
     const [isClient, setIsClient] = useState(false);
 
-    // Client-side check add karein
     useEffect(() => {
         setIsClient(true);
     }, []);
@@ -55,8 +136,7 @@ export default function SignInPage() {
     };
 
     const onSubmit = async (data: SignInFormData) => {
-        // Additional client-side check
-        if (typeof window === 'undefined') {
+        if (typeof window === 'undefined' || !auth) {
             setError("Please try again in the browser");
             return;
         }
@@ -72,13 +152,11 @@ export default function SignInPage() {
             const token = await userCredential.user.getIdToken();
             console.log("Logged in successfully", token);
 
-            // Redirect after successful login
-            window.location.href = "/dashboard"; // Ya jahan redirect karna hai
+            window.location.href = "/dashboard";
 
         } catch (err: unknown) {
             console.error("Login error:", err);
 
-            // Firebase specific errors handle karein
             if (typeof err === "object" && err !== null && "code" in err) {
                 const errorCode = (err as { code?: string }).code;
                 if (errorCode === 'auth/invalid-credential') {
@@ -100,7 +178,6 @@ export default function SignInPage() {
         }
     };
 
-    // Agar client-side nahi hai to loading show karein
     if (!isClient) {
         return (
             <Container component="main" maxWidth="sm" sx={{ py: 8, textAlign: 'center' }}>

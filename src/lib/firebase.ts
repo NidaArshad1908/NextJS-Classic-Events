@@ -1,5 +1,5 @@
-import { initializeApp, getApps } from "firebase/app";
-import { getAuth } from "firebase/auth";
+import { initializeApp, getApps, FirebaseApp } from "firebase/app";
+import { getAuth, Auth } from "firebase/auth";
 
 const firebaseConfig = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
@@ -10,18 +10,12 @@ const firebaseConfig = {
   appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
 };
 
-// Server-side par initialize na karein
-let app;
-let auth;
+let app: FirebaseApp | undefined;
+let auth: Auth | undefined;
 
 if (typeof window !== "undefined") {
-  // Client-side par hi initialize karein
   app = getApps().length === 0 ? initializeApp(firebaseConfig) : getApps()[0];
   auth = getAuth(app);
-} else {
-  // Server-side par null rahe
-  app = null;
-  auth = null;
 }
 
 export { auth };
