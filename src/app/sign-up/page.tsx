@@ -1,10 +1,10 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { auth } from "@/lib/firebase";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { Visibility, VisibilityOff, Person, Email, Lock } from "@mui/icons-material";
-import { Container, TextField, Button, Typography, Box, Divider, IconButton, InputAdornment, } from "@mui/material";
+import { Container, TextField, Button, Typography, Box, Divider, IconButton, InputAdornment, Alert } from "@mui/material";
 
 export default function SignUpPage() {
     const [showPassword, setShowPassword] = useState(false);
@@ -15,57 +15,29 @@ export default function SignUpPage() {
     });
     const [error, setError] = useState("");
     const [loading, setLoading] = useState(false);
+    const [isClient, setIsClient] = useState(false);
+
+    // Client-side check add karein
+    useEffect(() => {
+        setIsClient(true);
+    }, []);
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target;
         setFormData((prev) => ({ ...prev, [name]: value }));
     };
 
-    // const validate = () => {
-    //     if (!formData.username.trim()) return "Username required";
-    //     if (!formData.email.includes("@")) return "Valid email required";
-    //     if (formData.password.length < 6) return "Password must be at least 6 chars";
-    //     return "";
-    // };
-
-    // const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    //     e.preventDefault();
-    //     setError("");
-    //     const validationError = validate();
-    //     if (validationError) {
-    //         setError(validationError);
-    //         return;
-    //     }
-
-    //     try {
-    //         setLoading(true);
-    //         const userCred = await createUserWithEmailAndPassword(
-    //             auth,
-    //             formData.email,
-    //             formData.password
-    //         );
-
-    //         await updateProfile(userCred.user, {
-    //             displayName: formData.username,
-    //         });
-
-    //         console.log("User registered:", userCred.user);
-    //         alert("Account created successfully!");
-    //     } catch (err: unknown) {
-    //         if (err instanceof Error) {
-    //             setError(err.message);
-    //         } else {
-    //             setError("An unexpected error occurred.");
-    //         }
-    //     } finally {
-    //         setLoading(false);
-    //     }
-    // };
-
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         setError("");
         setLoading(true);
+
+        // Auth availability check karein
+        if (!auth || typeof window === 'undefined') {
+            setError("Authentication service is not available. Please try again.");
+            setLoading(false);
+            return;
+        }
 
         try {
             const userCred = await createUserWithEmailAndPassword(
@@ -81,12 +53,26 @@ export default function SignUpPage() {
             console.log("User registered:", userCred.user);
             alert("Account created successfully!");
 
+            // Redirect after successful registration
+            window.location.href = "/dashboard";
+
         } catch (err: unknown) {
             console.error("Firebase error:", err);
+
+            // Firebase specific errors handle karein
             if (err instanceof Error) {
-                setError(err.message);
+                const errorMessage = err.message;
+                if (errorMessage.includes('auth/email-already-in-use')) {
+                    setError("This email is already registered.");
+                } else if (errorMessage.includes('auth/invalid-email')) {
+                    setError("Invalid email address.");
+                } else if (errorMessage.includes('auth/weak-password')) {
+                    setError("Password should be at least 6 characters.");
+                } else {
+                    setError(errorMessage);
+                }
             } else {
-                setError("Registration failed");
+                setError("Registration failed. Please try again.");
             }
         } finally {
             setLoading(false);
@@ -94,6 +80,15 @@ export default function SignUpPage() {
     };
 
     const togglePasswordVisibility = () => setShowPassword(!showPassword);
+
+    // Loading state for server-side rendering
+    if (!isClient) {
+        return (
+            <Container component="main" maxWidth="sm" sx={{ py: 8, textAlign: 'center' }}>
+                <Typography>Loading...</Typography>
+            </Container>
+        );
+    }
 
     return (
         <Container component="main" maxWidth="sm" sx={{ py: 8 }}>
@@ -108,9 +103,9 @@ export default function SignUpPage() {
             </Typography>
 
             {error && (
-                <Typography color="error" align="center" sx={{ mb: 2 }}>
+                <Alert severity="error" sx={{ mb: 2 }}>
                     {error}
-                </Typography>
+                </Alert>
             )}
 
             <Box component="form" onSubmit={handleSubmit} sx={{ mt: 1 }}>
@@ -123,6 +118,7 @@ export default function SignUpPage() {
                     name="username"
                     value={formData.username}
                     onChange={handleInputChange}
+                    disabled={loading}
                     InputProps={{
                         startAdornment: (
                             <InputAdornment position="start">
@@ -139,8 +135,10 @@ export default function SignUpPage() {
                     id="email"
                     label="Email Address"
                     name="email"
+                    type="email"
                     value={formData.email}
                     onChange={handleInputChange}
+                    disabled={loading}
                     InputProps={{
                         startAdornment: (
                             <InputAdornment position="start">
@@ -160,6 +158,7 @@ export default function SignUpPage() {
                     id="password"
                     value={formData.password}
                     onChange={handleInputChange}
+                    disabled={loading}
                     InputProps={{
                         startAdornment: (
                             <InputAdornment position="start">
@@ -168,7 +167,11 @@ export default function SignUpPage() {
                         ),
                         endAdornment: (
                             <InputAdornment position="end">
-                                <IconButton onClick={togglePasswordVisibility} edge="end">
+                                <IconButton
+                                    onClick={togglePasswordVisibility}
+                                    edge="end"
+                                    disabled={loading}
+                                >
                                     {showPassword ? <VisibilityOff /> : <Visibility />}
                                 </IconButton>
                             </InputAdornment>
@@ -190,10 +193,13 @@ export default function SignUpPage() {
                         ":hover": { opacity: 0.8 },
                         color: "#000",
                         backgroundColor: "#B88658",
+                        '&:disabled': {
+                            backgroundColor: '#cccccc'
+                        }
                     }}
                     size="large"
                 >
-                    {loading ? "Creating..." : "Register"}
+                    {loading ? "Creating Account..." : "Register"}
                 </Button>
             </Box>
 
@@ -212,9 +218,9 @@ export default function SignUpPage() {
                             backgroundColor: 'rgba(184, 134, 88, 0.04)'
                         }
                     }}
-                    href="/sign-up"
+                    disabled={loading}
                 >
-                    Create with Google
+                    Continue with Google
                 </Button>
                 <Button
                     fullWidth
@@ -229,9 +235,9 @@ export default function SignUpPage() {
                             backgroundColor: 'rgba(184, 134, 88, 0.04)'
                         }
                     }}
-                    href="/sign-up"
+                    disabled={loading}
                 >
-                    Create with FaceBook
+                    Continue with Facebook
                 </Button>
             </Box>
         </Container>
