@@ -9,15 +9,15 @@
     "lint": "eslint"
   },
   "dependencies": {
-    "@apollo/client": "^4.0.7",
-    "@apollo/server": "^4.12.2",
+    "@apollo/client": "^3.8.0",
+    "@apollo/server": "^5.0.0",
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.1",
     "@hookform/resolvers": "^5.2.2",
     "@mui/icons-material": "^7.3.2",
     "@mui/material": "^7.3.2",
     "@mui/system": "^7.3.2",
-    "@nestjs/apollo": "^13.1.0",
+    "@nestjs/apollo": "^13.2.1",
     "@nestjs/graphql": "^13.1.0",
     "@radix-ui/react-progress": "^1.1.7",
     "@radix-ui/react-separator": "^1.1.7",
