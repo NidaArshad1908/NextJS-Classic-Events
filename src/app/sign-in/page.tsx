@@ -1,7 +1,7 @@
 "use client";
 
 import * as yup from "yup";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { auth } from "@/lib/firebase";
 import { useForm, Controller } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -30,6 +30,12 @@ export default function SignInPage() {
     const [showPassword, setShowPassword] = useState(false);
     const [error, setError] = useState("");
     const [loading, setLoading] = useState(false);
+    const [isClient, setIsClient] = useState(false);
+
+    // Client-side check add karein
+    useEffect(() => {
+        setIsClient(true);
+    }, []);
 
     const {
         control,
@@ -48,31 +54,13 @@ export default function SignInPage() {
         setShowPassword((prev) => !prev);
     };
 
-    // const onSubmit = async (data: SignInFormData) => {
-    //     setError("");
-    //     setLoading(true);
-    //     try {
-
-    //         const userCredential = await signInWithEmailAndPassword(
-    //             auth,
-    //             data.email,
-    //             data.password
-    //         );
-    //         const token = await userCredential.user.getIdToken();
-    //         console.log("Logged in:", userCredential.user);
-    //         console.log("token", token);
-    //     } catch (err) {
-    //         if (err instanceof Error) {
-    //             setError(err.message);
-    //         } else {
-    //             setError("An unknown error occurred.");
-    //         }
-    //     } finally {
-    //         setLoading(false);
-    //     }
-    // };
-
     const onSubmit = async (data: SignInFormData) => {
+        // Additional client-side check
+        if (typeof window === 'undefined') {
+            setError("Please try again in the browser");
+            return;
+        }
+
         setError("");
         setLoading(true);
         try {
@@ -84,11 +72,26 @@ export default function SignInPage() {
             const token = await userCredential.user.getIdToken();
             console.log("Logged in successfully", token);
 
+            // Redirect after successful login
+            window.location.href = "/dashboard"; // Ya jahan redirect karna hai
 
-        } catch (err) {
+        } catch (err: unknown) {
             console.error("Login error:", err);
-            if (err instanceof Error) {
-                setError(err.message);
+
+            // Firebase specific errors handle karein
+            if (typeof err === "object" && err !== null && "code" in err) {
+                const errorCode = (err as { code?: string }).code;
+                if (errorCode === 'auth/invalid-credential') {
+                    setError("Invalid email or password");
+                } else if (errorCode === 'auth/user-not-found') {
+                    setError("No account found with this email");
+                } else if (errorCode === 'auth/wrong-password') {
+                    setError("Incorrect password");
+                } else if (errorCode === 'auth/too-many-requests') {
+                    setError("Too many failed attempts. Please try again later");
+                } else {
+                    setError((err as { message?: string }).message || "Login failed");
+                }
             } else {
                 setError("Login failed");
             }
@@ -96,6 +99,15 @@ export default function SignInPage() {
             setLoading(false);
         }
     };
+
+    // Agar client-side nahi hai to loading show karein
+    if (!isClient) {
+        return (
+            <Container component="main" maxWidth="sm" sx={{ py: 8, textAlign: 'center' }}>
+                <Typography>Loading...</Typography>
+            </Container>
+        );
+    }
 
     return (
         <Container component="main" maxWidth="sm" sx={{ py: 8 }}>
@@ -160,7 +172,11 @@ export default function SignInPage() {
                                 ),
                                 endAdornment: (
                                     <InputAdornment position="end">
-                                        <IconButton onClick={togglePasswordVisibility} edge="end">
+                                        <IconButton
+                                            onClick={togglePasswordVisibility}
+                                            edge="end"
+                                            disabled={loading}
+                                        >
                                             {showPassword ? <VisibilityOff /> : <Visibility />}
                                         </IconButton>
                                     </InputAdornment>
@@ -175,7 +191,14 @@ export default function SignInPage() {
                     control={control}
                     render={({ field }) => (
                         <FormControlLabel
-                            control={<Checkbox {...field} color="primary" />}
+                            control={
+                                <Checkbox
+                                    {...field}
+                                    color="primary"
+                                    checked={field.value || false}
+                                    disabled={loading}
+                                />
+                            }
                             label="Remember me"
                         />
                     )}
@@ -194,7 +217,10 @@ export default function SignInPage() {
                         borderRadius: 2,
                         ":hover": { opacity: 0.8 },
                         color: '#000',
-                        backgroundColor: '#B88658'
+                        backgroundColor: '#B88658',
+                        '&:disabled': {
+                            backgroundColor: '#cccccc'
+                        }
                     }}
                 >
                     {loading ? "Logging in..." : "Log In"}
@@ -218,12 +244,17 @@ export default function SignInPage() {
                         }
                     }}
                     href="/sign-up"
+                    disabled={loading}
                 >
                     Create Account
                 </Button>
 
                 <Box textAlign="center" sx={{ mt: 2 }}>
-                    <Button variant="text" sx={{ textTransform: "none", color: '#000000' }}>
+                    <Button
+                        variant="text"
+                        sx={{ textTransform: "none", color: '#000000' }}
+                        disabled={loading}
+                    >
                         Forgot your password?
                     </Button>
                 </Box>
@@ -244,7 +275,7 @@ export default function SignInPage() {
                             backgroundColor: 'rgba(184, 134, 88, 0.04)'
                         }
                     }}
-                    href="/sign-up"
+                    disabled={loading}
                 >
                     Continue with Google
                 </Button>
@@ -261,7 +292,7 @@ export default function SignInPage() {
                             backgroundColor: 'rgba(184, 134, 88, 0.04)'
                         }
                     }}
-                    href="/sign-up"
+                    disabled={loading}
                 >
                     Continue with FaceBook
                 </Button>
