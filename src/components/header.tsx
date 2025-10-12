@@ -168,22 +168,7 @@ export default function Header() {
                                         "&:hover": { color: "#b08968" },
                                     }}
                                 >
-                                    +27 11 791 9168
-                                </Link>
-                            </Box>
-                            <Box sx={{ display: "flex", alignItems: "center", gap: 0.5 }}>
-                                <PhoneIcon sx={{ fontSize: 16, color: "#b08968" }} />
-                                <Link
-                                    href="tel:+27827428239"
-                                    underline="none"
-                                    sx={{
-                                        color: "white",
-                                        fontSize: "0.875rem",
-                                        fontFamily: "var(--font-poppins)",
-                                        "&:hover": { color: "#b08968" },
-                                    }}
-                                >
-                                    +27 82 742 8239
+                                    +27 83 533 2503
                                 </Link>
                             </Box>
                         </Box>

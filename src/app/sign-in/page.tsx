@@ -1,5 +1,7 @@
 "use client";
 
+export const dynamic = 'force-dynamic';
+
 import * as yup from "yup";
 import { useState, useEffect } from "react";
 import { auth } from "@/lib/firebase";
@@ -27,88 +29,6 @@ const validationSchema = yup.object().shape({
 });
 
 export default function SignInPage() {
-    // const [showPassword, setShowPassword] = useState(false);
-    // const [error, setError] = useState("");
-    // const [loading, setLoading] = useState(false);
-    // const [isClient, setIsClient] = useState(false);
-
-    // useEffect(() => {
-    //     setIsClient(true);
-    // }, []);
-
-    // const {
-    //     control,
-    //     handleSubmit,
-    //     formState: { errors },
-    // } = useForm<SignInFormData>({
-    //     resolver: yupResolver(validationSchema),
-    //     defaultValues: {
-    //         email: "",
-    //         password: "",
-    //         rememberMe: false,
-    //     },
-    // });
-
-    // const togglePasswordVisibility = () => {
-    //     setShowPassword((prev) => !prev);
-    // };
-
-    // const onSubmit = async (data: SignInFormData) => {
-    //     if (typeof window === 'undefined') {
-    //         setError("Please try again in the browser");
-    //         return;
-    //     }
-
-    //     setError("");
-    //     setLoading(true);
-    //     try {
-    //         if (!auth) {
-    //             setError("Authentication service is not available.");
-    //             setLoading(false);
-    //             return;
-    //         }
-    //         const userCredential = await signInWithEmailAndPassword(
-    //             auth,
-    //             data.email,
-    //             data.password
-    //         );
-    //         const token = await userCredential.user.getIdToken();
-    //         console.log("Logged in successfully", token);
-
-    //         window.location.href = "/dashboard";
-
-    //     } catch (err: unknown) {
-    //         console.error("Login error:", err);
-
-    //         if (typeof err === "object" && err !== null && "code" in err) {
-    //             const errorCode = (err as { code?: string }).code;
-    //             if (errorCode === 'auth/invalid-credential') {
-    //                 setError("Invalid email or password");
-    //             } else if (errorCode === 'auth/user-not-found') {
-    //                 setError("No account found with this email");
-    //             } else if (errorCode === 'auth/wrong-password') {
-    //                 setError("Incorrect password");
-    //             } else if (errorCode === 'auth/too-many-requests') {
-    //                 setError("Too many failed attempts. Please try again later");
-    //             } else {
-    //                 setError((err as { message?: string }).message || "Login failed");
-    //             }
-    //         } else {
-    //             setError("Login failed");
-    //         }
-    //     } finally {
-    //         setLoading(false);
-    //     }
-    // };
-
-    // if (!isClient) {
-    //     return (
-    //         <Container component="main" maxWidth="sm" sx={{ py: 8, textAlign: 'center' }}>
-    //             <Typography>Loading...</Typography>
-    //         </Container>
-    //     );
-    // }
-
     const [showPassword, setShowPassword] = useState(false);
     const [error, setError] = useState("");
     const [loading, setLoading] = useState(false);
@@ -157,18 +77,27 @@ export default function SignInPage() {
         } catch (err: unknown) {
             console.error("Login error:", err);
 
-            if (typeof err === "object" && err !== null && "code" in err) {
-                const errorCode = (err as { code?: string }).code;
-                if (errorCode === 'auth/invalid-credential') {
+            if (
+                typeof err === "object" &&
+                err !== null &&
+                "code" in err &&
+                typeof (err as { code: unknown }).code === "string"
+            ) {
+                const code = (err as { code: string }).code;
+                if (code === 'auth/invalid-credential') {
                     setError("Invalid email or password");
-                } else if (errorCode === 'auth/user-not-found') {
+                } else if (code === 'auth/user-not-found') {
                     setError("No account found with this email");
-                } else if (errorCode === 'auth/wrong-password') {
+                } else if (code === 'auth/wrong-password') {
                     setError("Incorrect password");
-                } else if (errorCode === 'auth/too-many-requests') {
+                } else if (code === 'auth/too-many-requests') {
                     setError("Too many failed attempts. Please try again later");
                 } else {
-                    setError((err as { message?: string }).message || "Login failed");
+                    setError(
+                        (typeof ((err as unknown as { message?: unknown }).message) === "string"
+                            ? (err as unknown as { message: string }).message
+                            : "Login failed")
+                    );
                 }
             } else {
                 setError("Login failed");
